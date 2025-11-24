@@ -1,7 +1,7 @@
 <div align="center">
 <img src="https://i.postimg.cc/kMf1dhFP/icon.png" width="80" alt="Suger DevTool Logo">
 
-# **Suger DevTool**
+# **Suger Web DevTool** 
 **Advanced JavaScript Debugger & DOM Inspector for Mobile WebViews**
 
 [![License](https://img.shields.io/badge/License-Premium-blue?style=flat-square)](https://suger-devtool-7so18425t-sourav0chand-5264s-projects.vercel.app)
