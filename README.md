@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://i.postimg.cc/kMf1dhFP/icon.png" width="80" alt="Suger DevTool Logo">
+<img src="https://i.postimg.cc/G3536HzL/suger-dt.png" width="80" alt="Suger DevTool Logo">
 
 # **Suger Web DevTool** 
 **Advanced JavaScript Debugger & DOM Inspector for Mobile WebViews**
