@@ -62,7 +62,7 @@ Unlike simple loggers, this is a fully interactive debugger.
 
 You can use **Suger DevTool** in any HTML/JS project.
 
-### **Step 1: Service Worker (Required)**
+### **Service Worker (Optional Required for Debugging)**
 
 Essential for **Network Interception** and **Source Debugging**.  
 Must be placed in your project **root directory**.
@@ -74,7 +74,7 @@ Must be placed in your project **root directory**.
 
 ---
 
-### **Step 2: Inject Engine**
+### **Inject Engine**
 
 Download or serve locally:
 
@@ -83,8 +83,18 @@ Download or serve locally:
 Add this before `</body>`:
 
 ```html
-<script src="js/suger-dev.js"></script>
+<script src="dt/suger-dev.js"></script>
 ````
+
+**File Stucture:**
+
+```
+└── □ Your_Project_Folder/-
+    ├── dt/-
+    │   ├── suger-dev.js
+    ├── devtool-sw.js
+    ├── index.html <- your html file with suger <script>
+```
 
 ---
 
@@ -101,6 +111,7 @@ javascript:(function(){
   document.body.appendChild(script);
 })();
 ````
+
 **open any website & run saved bookmark**
 
 ---
