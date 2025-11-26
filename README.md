@@ -83,8 +83,25 @@ Download or serve locally:
 Add this before `</body>`:
 
 ```html
-<script src="js/suger-dev_1.0.0v.js"></script>
+<script src="js/suger-dev.js"></script>
 ````
+
+---
+
+### **Inject Engine in Chrome Bookmarklet**
+
+**Serve suger-dev.js file** *on localhost*
+
+**Save this into chrome bookmark url**
+
+```js
+javascript:(function(){
+  var script = document.createElement('script');
+  script.src = 'http://localhost:8080/suger-dev.js'; 
+  document.body.appendChild(script);
+})();
+````
+**open any website & run saved bookmark**
 
 ---
 
