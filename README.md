@@ -15,7 +15,7 @@
 
 Suger DevTool is a standalone, high-performance debugging engine designed to provide a desktop-class development experience on mobile devices.
 
-Built with a custom Babel-based instrumenter, it supports advanced features like **Async/Await stepping**, **Closure Scope capture**, and **Real-time Network interception**.
+Built with pure JS , It supports advanced features like **Async/Await stepping**, **Closure Scope capture**, and **Real-time Network interception**.
 
 It is specifically optimized for **Acode**, **Termux**, and **WebView-based** projects where native Chrome DevTools are unavailable.
 
