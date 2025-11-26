@@ -26,7 +26,7 @@ It is specifically optimized for **Acode**, **Termux**, and **WebView-based** pr
 ### **Pro Source Debugger**
 Unlike simple loggers, this is a fully interactive debugger.
 
-- `Async Support` — Step through asynchronous code, Promises, and Event Listeners without freezing the UI.  
+- `Async Support` — Step through asynchronous code, Promises, Event Listeners & Pause your Html page .
 - `Breakpoints` — Set line breakpoints in inline scripts and external files.  
 - `Scope Analysis` — Inspect Local, Closure, Block, and Global variables in real-time.  
 - `Watch Expressions` — Monitor variables as execution progresses.
