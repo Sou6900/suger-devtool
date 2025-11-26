@@ -107,7 +107,7 @@ Add this before `</body>`:
 ```js
 javascript:(function(){
   var script = document.createElement('script');
-  script.src = 'http://localhost:8080/suger-dev.js'; 
+  script.src = 'http://localhost:8080/dt/suger-dev.js'; 
   document.body.appendChild(script);
 })();
 ````
