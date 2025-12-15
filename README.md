@@ -1,7 +1,7 @@
 <div align="center">
 <img src="https://i.postimg.cc/G3536HzL/suger-dt.png" width="80" alt="Suger DevTool Logo">
 
-# **Suger Web DevTool (Mobile/Android)** 
+# Suger DevTool – Mobile DevTools
 **Advanced JavaScript Debugger & DOM Inspector for Mobile WebViews**
 
 [![License](https://img.shields.io/badge/License-Premium-blue?style=flat-square)](https://suger-devtool-7so18425t-sourav0chand-5264s-projects.vercel.app)
@@ -13,11 +13,13 @@
                 <img src="https://i.postimg.cc/JhYVRxLj/Picsart-25-11-23-11-08-42-726.png" class="main-app-img" style="width:100%;max-width:1200px;border-radius:0;" >
             </div>
 
+## What is Suger DevTool?
+
 Suger DevTool is a standalone, high-performance debugging engine designed to provide a desktop-class development experience on mobile devices.
 
 Built with pure JS , It supports advanced features like **Async/Await stepping**, **Closure Scope capture**, and **Real-time Network interception**.
 
-It is specifically optimized for **Acode**, **Termux**, and **WebView-based** projects where native Chrome DevTools are unavailable.
+It is specifically optimized for **Browser** , **Acode**, and **WebView-based** projects where native Chrome DevTools are unavailable.
 
 ---
 
