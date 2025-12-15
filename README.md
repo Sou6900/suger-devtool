@@ -115,7 +115,8 @@ Different tools are built for different needs.
 | CSS rule editing | ✅ | ❌ | ❌ |
 | Color picker | ✅ | ❌ | ❌ |
 | Computed styles depth | **Full / Detailed** | Basic | ❌ |
-| Box model preview | ✅ | Limited | ❌ |
+| Inspect Html | ✅ | ✅ | ❌
+| Box model preview | ✅ | ✅ | ❌ |
 | Advanced JS debugging | ✅ | ❌ | ❌ |
 | Network waterfall (DNS, SSL, TTFB) | ✅ | ❌ | ❌ |
 | Desktop required | ❌ | ❌ | ❌ |
