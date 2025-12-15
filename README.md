@@ -114,10 +114,11 @@ Different tools are built for different needs.
 | Live HTML editing | ✅ | ❌ | ❌ |
 | CSS rule editing | ✅ | ❌ | ❌ |
 | Color picker | ✅ | ❌ | ❌ |
-| Computed styles | ✅ | ❌ | ❌ |
+| Computed styles depth | **Full / Detailed** | Basic | ❌ |
+| Box model preview | ✅ | Limited | ❌ |
 | Advanced JS debugging | ✅ | ❌ | ❌ |
 | Desktop required | ❌ | ❌ | ❌ |
-| Target use case | Deep inspection | Lightweight debugging | Logging & network |
+| Target use case | Deep inspection | Lightweight debug | Logging & network |
 
 ---
 
