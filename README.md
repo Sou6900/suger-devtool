@@ -4,22 +4,27 @@
 # Suger DevTool – Mobile DevTools
 **Advanced JavaScript Debugger & DOM Inspector for Mobile WebViews**
 
-[![License](https://img.shields.io/badge/License-Premium-blue?style=flat-square)](https://suger-devtool-7so18425t-sourav0chand-5264s-projects.vercel.app)
-![V8 Parity](https://img.shields.io/badge/V8_Parity-90%25-success?style=flat-square)
-![Platform](https://img.shields.io/badge/Platform-Mobile%20%7C%20Web-lightgrey?style=flat-square)
-</div>
+![Type](https://img.shields.io/badge/Type-On--device%20Mobile%20DevTools-red?style=flat-square)
+![Platform](https://img.shields.io/badge/Platform-Mobile%20%7C%20Browser%20%7C%20WebView-lightgrey?style=flat-square)
+![Live Editing](https://img.shields.io/badge/Live-HTML%20%7C%20CSS%20Editing-blue?style=flat-square)
+![Debugger](https://img.shields.io/badge/Debugger-Advanced%20JS%20Debugging-purple?style=flat-square)
+![Dependency](https://img.shields.io/badge/Dependency-No%20Desktop%20Required-darkblue?style=flat-square)
+
 
 <div style="width:100%;max-width:1200px;border-radius:0;">
                 <img src="https://i.postimg.cc/JhYVRxLj/Picsart-25-11-23-11-08-42-726.png" class="main-app-img" style="width:100%;max-width:1200px;border-radius:0;" >
             </div>
 
-## What is Suger DevTool?
+## Why Suger DevTool?
 
-Suger DevTool is a standalone, high-performance debugging engine designed to provide a desktop-class development experience on mobile devices.
+Unlike tools like Eruda or vConsole, Suger DevTool focuses on **deep inspection and live editing**, not just logging.
 
-Built with pure JS , It supports advanced features like **Async/Await stepping**, **Closure Scope capture**, and **Real-time Network interception**.
+- Live HTML tree editing with instant visual feedback
+- Full CSS rule editing with color picker
+- Computed style inspection
+- Advanced JavaScript debugging with async stepping and More
+- No desktop, no USB, no remote DevTools required
 
-It is specifically optimized for **Browser** , **Acode**, and **WebView-based** projects where native Chrome DevTools are unavailable.
 
 ---
 
