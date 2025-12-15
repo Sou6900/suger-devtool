@@ -189,7 +189,7 @@ Open any website and run the saved bookmark.
 
 ### Access Options
 
-* **Free Trial:** 2-day risk-free trial
+* **Free Trial:** free trial
 * **Lifetime License:** One-time purchase at a minimal price
 
 ---
