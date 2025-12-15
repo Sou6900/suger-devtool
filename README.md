@@ -117,6 +117,7 @@ Different tools are built for different needs.
 | Computed styles depth | **Full / Detailed** | Basic | ❌ |
 | Box model preview | ✅ | Limited | ❌ |
 | Advanced JS debugging | ✅ | ❌ | ❌ |
+| Network waterfall (DNS, SSL, TTFB) | ✅ | ❌ | ❌ |
 | Desktop required | ❌ | ❌ | ❌ |
 | Target use case | Deep inspection | Lightweight debug | Logging & network |
 
