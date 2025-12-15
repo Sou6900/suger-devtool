@@ -1,8 +1,9 @@
 <div align="center">
-<img src="https://i.postimg.cc/G3536HzL/suger-dt.png" width="80" alt="Suger DevTool Logo">
+  <img src="https://i.postimg.cc/G3536HzL/suger-dt.png" width="80" alt="Suger DevTool Logo" />
 
 # Suger DevTool – Mobile DevTools
-**Advanced JavaScript Debugger & DOM Inspector for Mobile WebViews**
+
+**On-device Mobile DevTools with Live HTML, CSS Editing & Advanced JavaScript Debugging**
 
 ![Type](https://img.shields.io/badge/Type-On--device%20Mobile%20DevTools-red?style=flat-square)
 ![Platform](https://img.shields.io/badge/Platform-Mobile%20%7C%20Browser%20%7C%20WebView-lightgrey?style=flat-square)
@@ -10,137 +11,196 @@
 ![Debugger](https://img.shields.io/badge/Debugger-Advanced%20JS%20Debugging-purple?style=flat-square)
 ![Dependency](https://img.shields.io/badge/Dependency-No%20Desktop%20Required-darkblue?style=flat-square)
 
+</div>
 
-<div style="width:100%;max-width:1200px;border-radius:0;">
-                <img src="https://i.postimg.cc/JhYVRxLj/Picsart-25-11-23-11-08-42-726.png" class="main-app-img" style="width:100%;max-width:1200px;border-radius:0;" >
-            </div>
+<div style="width:100%;max-width:1200px;">
+  <img src="https://i.postimg.cc/JhYVRxLj/Picsart-25-11-23-11-08-42-726.png" style="width:100%;max-width:1200px;" />
+</div>
+
+---
+
+## What is Suger DevTool?
+
+**Suger DevTool** is a standalone, high-performance **mobile-first DevTools** designed to bring a **desktop-like debugging experience directly to mobile devices**.
+
+It focuses on **deep inspection and live editing**, not just console logging.
+
+Suger DevTool works entirely **on-device**, without requiring a desktop computer, USB connection, or remote DevTools setup.
+
+It is optimized for:
+- Mobile Browsers
+- Acode
+- WebView-based applications
+
+---
 
 ## Why Suger DevTool?
 
-Unlike tools like Eruda or vConsole, Suger DevTool focuses on **deep inspection and live editing**, not just logging.
+Most mobile debugging tools focus on basic logging and network inspection.
+
+**Suger DevTool is built for developers who need real control and visibility on mobile devices.**
 
 - Live HTML tree editing with instant visual feedback
-- Full CSS rule editing with color picker
-- Computed style inspection
-- Advanced JavaScript debugging with async stepping and More
-- No desktop, no USB, no remote DevTools required
-
-
----
-
-## **Key Features**
-
-### **Pro Source Debugger**
-Unlike simple loggers, this is a fully interactive debugger.
-
-- `Async Support` — Step through asynchronous code, Promises, Event Listeners & Pause your Html page .
-- `Breakpoints` — Set line breakpoints in inline scripts and external files.  
-- `Scope Analysis` — Inspect Local, Closure, Block, and Global variables in real-time.  
-- `Watch Expressions` — Monitor variables as execution progresses.
+- Full CSS rule editing with integrated color picker
+- Computed style inspection and box model view
+- Advanced JavaScript debugging with async/await stepping
+- Pause JavaScript execution and DOM updates to inspect state
+- No desktop, no USB, no remote debugging required
 
 ---
 
-### **Elements Inspector**
+## Who is Suger DevTool for?
 
-- `DOM Tree` — Fully interactive DOM tree with expand/collapse.  
-- `Live Edit` — Edit tags, attributes, and text content.  
-- `Computed Styles` — View box model and computed CSS.  
-- `Layout Tools` — Grid & Flexbox visualization overlays.
-
----
-
-### **Network Inspector**
-
-- `Waterfall Chart` — Visual request timing (DNS, SSL, TTFB, Download).  
-- `Interception` — View headers, payloads, and responses.  
-- `XHR Breakpoints` — Pause on specific network calls.
+- Mobile-first web developers
+- WebView / Hybrid app developers
+- Acode users
+- QA testers debugging on real devices
+- Developers without reliable access to desktop DevTools
 
 ---
 
-### **Application Manager**
+## Key Features
 
-- `Storage` — LocalStorage, SessionStorage, Cookies viewer.  
-- `Deep Inspect` — IndexedDB & Cache Storage explorer.  
-- `Service Workers` — Inspect and unregister SWs.
+### Pro Source Debugger
 
----
+A fully interactive JavaScript debugger designed for mobile environments.
 
-## **Installation (Standalone)**
-
-You can use **Suger DevTool** in any HTML/JS project.
-
-### **Service Worker (Optional Required for Debugging)**
-
-Essential for **Network Interception** and **Source Debugging**.  
-Must be placed in your project **root directory**.
-
-**File Name:** `devtool-sw.js`  
-**Download:** *Get devtool-sw.js*  
-
-> **Important:** Place this file next to your `index.html`.
+- **Async Support** — Step through asynchronous code, Promises, event listeners, and timers
+- **Breakpoints** — Set breakpoints in inline scripts and external JavaScript files
+- **Scope Analysis** — Inspect local, closure, block, and global variables in real time
+- **Watch Expressions** — Track expressions and variables as execution progresses
+- **Execution Control** — Pause and resume JavaScript execution safely
 
 ---
 
-### **Inject Engine**
+### Elements Inspector
 
-Download or serve locally:
+Inspect and modify the DOM directly on your mobile device.
 
-**Download:** *Get suger-dev.js*
+- **DOM Tree** — Fully interactive DOM tree with expand/collapse
+- **Live Edit** — Edit tags, attributes, and text content in real time
+- **Computed Styles** — Inspect resolved CSS values and box model
+- **Layout Tools** — Grid and Flexbox visualization overlays
 
-Add this before `</body>`:
+---
+
+### Network Inspector
+
+Analyze network activity directly on-device.
+
+- **Waterfall Chart** — Visual request timing (DNS, SSL, TTFB, Download)
+- **Interception** — Inspect request headers, payloads, and responses
+- **XHR Breakpoints** — Pause execution on specific network requests
+
+---
+
+### Application Manager
+
+Inspect application-level storage and resources.
+
+- **Storage** — LocalStorage, SessionStorage, and Cookies viewer
+- **Deep Inspect** — IndexedDB and Cache Storage explorer
+- **Service Workers** — Inspect and unregister service workers
+
+---
+
+## Comparison with Other Mobile DevTools
+
+Different tools are built for different needs.
+
+| Feature | Suger DevTool | Eruda | vConsole |
+|------|------|------|------|
+| Console logs | ✅ | ✅ | ✅ |
+| Live HTML editing | ✅ | ❌ | ❌ |
+| CSS rule editing | ✅ | ❌ | ❌ |
+| Color picker | ✅ | ❌ | ❌ |
+| Computed styles | ✅ | ❌ | ❌ |
+| Advanced JS debugging | ✅ | ❌ | ❌ |
+| Desktop required | ❌ | ❌ | ❌ |
+| Target use case | Deep inspection | Lightweight debugging | Logging & network |
+
+---
+
+## Installation (Standalone)
+
+You can use **Suger DevTool** in any HTML/JavaScript project.
+
+---
+
+### Service Worker  
+**Required for advanced debugging features** such as network interception and source debugging.
+
+- **File name:** `devtool-sw.js`
+- **Location:** Project root (same directory as `index.html`)
+
+> ⚠️ Make sure the service worker file is accessible from the root scope.
+
+---
+
+### Inject Engine
+
+Download or serve the engine locally:
+
+- **File:** `suger-dev.js`
+
+Add before `</body>`:
 
 ```html
 <script src="dt/suger-dev.js"></script>
 ````
 
-**File Stucture:**
+**File structure:**
 
 ```
-└── □ Your_Project_Folder/-
-    ├── dt/-
-    │   ├── suger-dev.js
-    ├── devtool-sw.js
-    ├── index.html <- your html file with suger <script>
+Your_Project/
+├── dt/
+│   └── suger-dev.js
+├── devtool-sw.js
+└── index.html
 ```
 
 ---
 
-### **Inject Engine in Chrome Bookmarklet**
+### Inject via Chrome Bookmarklet
 
-**Serve suger-dev.js file** *on localhost*
-
-**Save this into chrome bookmark url**
+Serve `suger-dev.js` from localhost and save this as a bookmark URL:
 
 ```js
 javascript:(function(){
-  var script = document.createElement('script');
-  script.src = 'http://localhost:8080/dt/suger-dev.js'; 
-  document.body.appendChild(script);
+  var script = document.createElement('script');
+  script.src = 'http://localhost:8080/dt/suger-dev.js';
+  document.body.appendChild(script);
 })();
-````
+```
 
-**open any website & run saved bookmark**
-
----
-
-## **Licensing**
-
-> **Note:** Suger DevTool is premium software protected by device fingerprinting.
-
-To use it, you need a **valid License Key**.
-
-* **Purchase Key:** Visit the official website
-* **Free Trial:** 2-day trial available (contact support)
-
-**Activation:**
-
-* Enter license key on first load
-* Key binds to device
-* Supports offline mode for **48 hours**
+Open any website and run the saved bookmark.
 
 ---
 
-## **Support**
+## Licensing
 
-**Website:** [https://suger-devtool.vercel.app](https://suger-devtool.vercel.app)
-**Telegram:** @cosmodec
+> **Note:** Suger DevTool is premium software.
+
+* License is bound to a single device for fair usage
+* Offline usage supported After using product key 
+* Designed for debugging and development purposes
+
+### Access Options
+
+* **Free Trial:** 2-day risk-free trial
+* **Lifetime License:** One-time purchase at a minimal price
+
+---
+
+## Limitations
+
+* Native browser rendering and layout pipeline cannot be paused
+* Media playback and some CSS animations may continue while paused
+* Not intended for production runtime usage
+
+---
+
+## Support
+
+* **Website:** [https://suger-devtool.vercel.app](https://suger-devtool.vercel.app)
+* **Telegram:** @cosmodec
