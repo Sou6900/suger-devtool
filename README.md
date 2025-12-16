@@ -110,16 +110,23 @@ Different tools are built for different needs.
 
 | Feature | Suger DevTool | Eruda | vConsole |
 |------|------|------|------|
+| Tablet/Mobile Support | ✅ | ✅| ✅|
+| Chrome Bookmarklet Support | ✅ | ✅| ✅|
 | Console logs | ✅ | ✅ | ✅ |
+| Inspect Html | ✅ | ✅ | ❌
+| Box model preview | ✅ | ✅ | ❌ |
 | Live HTML editing | ✅ | ❌ | ❌ |
 | CSS rule editing | ✅ | ❌ | ❌ |
 | Color picker | ✅ | ❌ | ❌ |
-| Computed styles depth | **Full / Detailed** | Basic | ❌ |
-| Inspect Html | ✅ | ✅ | ❌
-| Box model preview | ✅ | ✅ | ❌ |
+| Devices Preview | ✅ | ❌ | ❌ |
 | Advanced JS debugging | ✅ | ❌ | ❌ |
 | Network waterfall (DNS, SSL, TTFB) | ✅ | ❌ | ❌ |
-| Desktop required | ❌ | ❌ | ❌ |
+| Computed styles depth | ✅ **Detailed** | Basic | ❌ |
+| UI language support | ✅ **Structured/Extensible** | Limited | Limited |
+| Extension? | Upcoming | ✅ | Limited |
+| Desktop required | No | No | No |
+| Min Size | ~3.2MB | ~480KB | ~280KB |
+| Lag? | No | No | No |
 | Target use case | Deep inspection | Lightweight debug | Logging & network |
 
 ---
