@@ -201,6 +201,14 @@ javascript:(function(){
 })();
 ```
 
+<br>
+
+> Free Trial (Beta) Key
+```js
+CRST-FREE-GIFT-SUGR
+```
+
+
 Open almost any website and run the saved bookmark.
 
 ---
