@@ -158,6 +158,9 @@ Add before `</body>`:
 ```html
 <script src="dt/suger-dev.js"></script>
 ````
+```cdn
+<script src="https://suger-pb43t0o1d-sourav0chand-5264s-projects.vercel.app/suger-dev.js"></script>
+````
 
 **File structure:**
 
