@@ -177,7 +177,7 @@ Your_Project/
 
 ---
 
-### Inject via Chrome Bookmarklet
+### Inject via Chrome Bookmarklet Via Localhost
 
 Serve `suger-dev.js` from localhost and save this as a bookmark URL:
 
@@ -189,7 +189,19 @@ javascript:(function(){
 })();
 ```
 
-Open any website and run the saved bookmark.
+### Inject via Chrome Bookmarklet Via CDN
+
+Serve `suger-dev.js` via CDN and save this as a bookmark URL:
+
+```js
+javascript:(function(){
+  var script = document.createElement('script');
+  script.src = 'https://suger-pb43t0o1d-sourav0chand-5264s-projects.vercel.app/suger-dev.js';
+  document.body.appendChild(script);
+})();
+```
+
+Open almost any website and run the saved bookmark.
 
 ---
 
