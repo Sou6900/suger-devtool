@@ -14,7 +14,7 @@
 </div>
 
 <div style="width:100%;max-width:1200px;">
-  <img src="https://i.postimg.cc/JhYVRxLj/Picsart-25-11-23-11-08-42-726.png" style="width:100%;max-width:1200px;" />
+  <img src="https://i.postimg.cc/G3PBM4qc/IMG-20251226-133848.png" style="width:100%;max-width:1200px;" />
 </div>
 
 ---
@@ -73,6 +73,14 @@ A fully interactive JavaScript debugger designed for mobile environments.
 
 ---
 
+### Device Emulation View
+
+View Responsiveness through device view
+
+- **Device View** — Device view with many pre exist device & custom 
+
+---
+
 ### Elements Inspector
 
 Inspect and modify the DOM directly on your mobile device.
@@ -81,6 +89,7 @@ Inspect and modify the DOM directly on your mobile device.
 - **Live Edit** — Edit tags, attributes, and text content in real time
 - **Computed Styles** — Inspect resolved CSS values and box model
 - **Layout Tools** — Grid and Flexbox visualization overlays
+- **Style Change Tracker** — Track, preview, diff, and copy CSS modifications in real time
 
 ---
 
@@ -104,6 +113,15 @@ Inspect application-level storage and resources.
 
 ---
 
+### Performance Monitor
+
+Real-time tracking of system resources and rendering performance.
+
+* **Resource Graphs** — Visual timeline for CPU usage, JS Heap, and FPS
+* **DOM Stats** — Monitor DOM node counts and active event listeners
+
+---
+
 ## Comparison with Other Mobile DevTools
 
 Different tools are built for different needs.
@@ -112,9 +130,10 @@ Different tools are built for different needs.
 |------|------|------|------|
 | Tablet/Mobile Support | ✅ | ✅| ✅|
 | Chrome Bookmarklet Support | ✅ | ✅| ✅|
-| Console logs | ✅ | ✅ | ✅ |
-| Inspect Html | ✅ | ✅ | ❌
+| Inspect Html | ✅ | ✅ | ❌ |
 | Box model preview | ✅ | ✅ | ❌ |
+| Performance Monitor | ✅ | ✅ | ❌ |
+| Console with Snippet/Eager View | ✅ | ❌ | ❌ |
 | Live HTML editing | ✅ | ❌ | ❌ |
 | CSS rule editing | ✅ | ❌ | ❌ |
 | Color picker | ✅ | ❌ | ❌ |
