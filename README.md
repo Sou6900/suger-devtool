@@ -181,7 +181,7 @@ Add before `</body>`:
 suger CDN link - 1.0.11v
 
 ```html
-<script src="https://suger-1ggvu67gs-sourav0chand-5264s-projects.vercel.app/suger-dev.js"></script>
+<script src="https://suger-cdn.vercel.app/suger-dev.js"></script>
 ````
 
 **File structure:**
@@ -215,7 +215,7 @@ Serve `suger-dev.js` via CDN and save this as a bookmark URL:
 ```js
 javascript:(function(){
   var script = document.createElement('script');
-  script.src = 'https://suger-1ggvu67gs-sourav0chand-5264s-projects.vercel.app/suger-dev.js';
+  script.src = 'https://suger-cdn.vercel.app/suger-dev.js';
   document.body.appendChild(script);
 })();
 ```
