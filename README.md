@@ -178,7 +178,7 @@ Add before `</body>`:
 <script src="dt/suger-dev.js"></script>
 ````
 
-suger CDN link - 1.0.11v
+suger CDN link - 1.x.xv
 
 ```html
 <script src="https://suger-cdn.vercel.app/suger-dev.js"></script>
@@ -208,7 +208,7 @@ javascript:(function(){
 })();
 ```
 
-### Inject via Chrome Bookmarklet Via CDN -- 1.0.11v
+### Inject via Chrome Bookmarklet Via CDN -- 1.x.xv
 
 Serve `suger-dev.js` via CDN and save this as a bookmark URL:
 
