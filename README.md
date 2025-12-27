@@ -208,7 +208,7 @@ javascript:(function(){
 })();
 ```
 
-### Inject via Chrome Bookmarklet Via CDN
+### Inject via Chrome Bookmarklet Via CDN -- 1.0.11v
 
 Serve `suger-dev.js` via CDN and save this as a bookmark URL:
 
