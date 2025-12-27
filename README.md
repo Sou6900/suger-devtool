@@ -178,7 +178,7 @@ Add before `</body>`:
 <script src="dt/suger-dev.js"></script>
 ````
 
-suger CDN link
+suger CDN link - 1.0.11v
 
 ```html
 <script src="https://suger-1ggvu67gs-sourav0chand-5264s-projects.vercel.app/suger-dev.js"></script>
