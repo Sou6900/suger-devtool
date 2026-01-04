@@ -24,19 +24,39 @@
   <summary style="font-weight:bold;font-style:italic;color:#3a61a6;">HD previews</summary>
   <center>
     <div style="display:flex;overflow:auto; gap:8px;flex-direction:row !important;">
+      <h5>Mobile Preview</h5>
       <img src="https://i.postimg.cc/DZVVPhtL/Screenshot-2026-01-04-11-02-59-67-4d38fce200f96aeac5e860e739312e76.jpg" alt="Suger Devtool Preview" style="width:280px;border-radius:5px;">
+      <hr>
       <img src="https://i.postimg.cc/2ywPYZ36/Screenshot-2026-01-04-09-03-09-23-4d38fce200f96aeac5e860e739312e76.jpg" alt="Suger Devtool Preview" style="width:280px;border-radius:5px;">
+      <hr>
       <img src="https://i.postimg.cc/HxbqSKgN/IMG-20260104-102230.jpg" alt="Suger Devtool Preview" style="width:280px;border-radius:5px;">
+      <hr>
       <img src="https://i.postimg.cc/prxg3ZWw/IMG-20260104-100242.jpg" alt="Suger Devtool Preview" style="width:280px;border-radius:5px;">
+      <hr>
       <img src="https://i.postimg.cc/HxbqSKgw/IMG-20260104-105215.jpg" alt="Suger Devtool Preview" style="width:280px;border-radius:5px;">
+      <hr>
       <img src="https://i.postimg.cc/90Vvspmg/Screenshot-2026-01-04-10-13-45-52-4d38fce200f96aeac5e860e739312e76.jpg" alt="Suger Devtool Preview" style="width:280px;border-radius:5px;">
+      <hr>
       <img src="https://i.postimg.cc/NFYWZ4sP/IMG-20260104-100819.jpg" alt="Suger Devtool Preview" style="width:280px;border-radius:5px;">
+      <hr>
       <img src="https://i.postimg.cc/NFYWZ4GM/IMG-20260104-095549.jpg" alt="Suger Devtool Preview" style="width:280px;border-radius:5px;">
+      <hr>
       <img src="https://i.postimg.cc/GtrZ6Q31/IMG-20260104-095602.jpg" alt="Suger Devtool Preview" style="width:280px;border-radius:5px;">
+      <hr>
       <img src="https://i.postimg.cc/rsJvTrzV/Screenshot-2026-01-04-09-25-39-84-4d38fce200f96aeac5e860e739312e76.jpg" alt="Suger Devtool Preview" style="width:280px;border-radius:5px;">
+      <hr>
       <img src="https://i.postimg.cc/NMR3NVck/Screenshot-2026-01-04-10-37-08-76-4d38fce200f96aeac5e860e739312e76.jpg" alt="Suger Devtool Preview" style="width:280px;border-radius:5px;">
+      <hr>
       <img src="https://i.postimg.cc/pTKw07Hs/Screenshot-2026-01-04-10-44-20-05-4d38fce200f96aeac5e860e739312e76.jpg" alt="Suger Devtool Preview" style="width:280px;border-radius:5px;">
-      <img src="" alt="Suger Devtool Preview" style="width:280px;border-radius:5px;">
+      <hr>      
+      <h5>Tablet Preview</h5>
+      <img src="https://i.postimg.cc/kXPN8gwh/IMG-20260104-112255.jpg" alt="Suger Devtool Preview" style="width:280px;border-radius:5px;">
+      <hr>
+      <img src="https://i.postimg.cc/y6ZXkZhm/Screenshot-2026-01-04-11-17-41-70-4d38fce200f96aeac5e860e739312e76.jpg" alt="Suger Devtool Preview" style="width:280px;border-radius:5px;">
+      <hr>
+      <img src="https://i.postimg.cc/PrnbZ5KS/Screenshot-2026-01-04-11-21-50-52-4d38fce200f96aeac5e860e739312e76.jpg" alt="Suger Devtool Preview" style="width:280px;border-radius:5px;">
+      <hr>
+      <img src="https://i.postimg.cc/65xVRpz0/Screenshot-2026-01-04-11-30-41-14-4d38fce200f96aeac5e860e739312e76.jpg" alt="Suger Devtool Preview" style="width:280px;border-radius:5px;">
     </div>
   </center>
 </details>
