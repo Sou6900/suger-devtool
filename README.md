@@ -78,8 +78,9 @@ Suger DevTool works entirely **on-device**, without requiring a desktop computer
 
 It is optimized for:
 - Mobile Browsers
-- Acode
+- Acode 
 - WebView-based applications
+- Shadow Dom
 
 ---
 
