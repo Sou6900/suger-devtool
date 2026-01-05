@@ -19,6 +19,11 @@
 </div>
 
 ---
+## Suger Playground
+
+[PLAYGROUND](https://suger-play.vercel.app)
+
+---
 
  <details>
   <summary style="font-weight:bold;font-style:italic;color:#3a61a6;">HD previews</summary>
