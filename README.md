@@ -274,7 +274,7 @@ javascript:(function(){
 
 > Free Trial (Beta) Key
 ```js
-NYARFREEGIFTSUGR
+NYAR-FREE-GIFT-SUGR
 ```
 
 
