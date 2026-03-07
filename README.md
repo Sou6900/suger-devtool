@@ -1,9 +1,11 @@
 <div align="center">
   <img src="https://i.postimg.cc/G3536HzL/suger-dt.png" width="80" alt="Suger DevTool Logo" />
 
-# Suger DevTool – Mobile DevTools
+# Suger DevTool — Mobile Browser DevTools (Eruda Alternative)
 
-**On-device Mobile DevTools with Live HTML, CSS Editing & Advanced JavaScript Debugging**
+**Mobile DevTools for Browser & WebView — Eruda Alternative**
+
+*On-device Mobile DevTools with Live HTML, CSS Editing & Advanced JavaScript Debugging*
 
 ![Type](https://img.shields.io/badge/Type-On--device%20Mobile%20DevTools-red?style=flat-square)
 ![Platform](https://img.shields.io/badge/Platform-Mobile%20%7C%20Browser%20%7C%20WebView-lightgrey?style=flat-square)
