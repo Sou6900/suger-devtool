@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://i.postimg.cc/G3536HzL/suger-dt.png" width="80" alt="Suger DevTool Logo" />
 
-# Suger DevTool — Mobile Browser DevTools (Eruda Alternative)
+# Suger Dev Tool
 
 **Mobile DevTools for Browser & WebView — Eruda Alternative**
 
