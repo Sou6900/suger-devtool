@@ -113,7 +113,7 @@ Most mobile debugging tools focus on basic logging and network inspection.
 
 ## Key Features
 
-### Pro Source Debugger
+### <img src="https://api.iconify.design/vscode-icons:file-type-js-official.svg" width="18" valign="middle"> **Source Debugger**
 
 A fully interactive JavaScript debugger designed for mobile environments.
 
@@ -125,7 +125,20 @@ A fully interactive JavaScript debugger designed for mobile environments.
 
 ---
 
-### Device Emulation View
+### <img src="https://api.iconify.design/codicon:terminal.svg?color=%234CAF50" width="18" valign="middle"> **Advanced Console Engine**
+A pro-level, fully interactive JavaScript console tailored for deep inspection and rapid execution.
+
+* **Intelligent Autocomplete** — Context-aware suggestions for object properties, global variables, JS keywords, and custom snippets.
+* **Eager Evaluation** — Real-time "ghost" preview of expression results before pressing enter.
+* **Advanced Object Inspector** — Chrome-style object evaluation with `[[Prototype]]` chain, `Symbol` support, and clickable Getters/Setters `(...)`.
+* **Interactive Stack Traces** — Detailed error logs with clickable source links (`file:line:col`) that directly route to the exact line in the Source Debugger.
+* **Smart Snippets** — Inject pre-built code blocks with interactive tab-stops for quick and repetitive debugging.
+* **Rich Formatting** — Full support for horizontal `console.table`, collapsible `console.group()` with indentation lines, and `%c` CSS-styled logs.
+* **Early Log Ingestion** — Captures all logs, native errors, and unhandled rejections that occur even before the DevTool is fully initialized.
+* **Smart Context Menu** — Advanced copy options including "Copy Object (JSON)", "Copy This Session", and "Copy Input + Outputs" via long-press/right-click.
+* **Filter & Sidebar** — Categorized log filtering (User, Errors, Warnings, Info) with real-time badge counters.
+
+### <img src="https://api.iconify.design/codicon:device-mobile.svg?color=%239c27b0" width="18" valign="middle"> **Device Emulation View**
 
 View Responsiveness through device view
 
@@ -133,7 +146,7 @@ View Responsiveness through device view
 
 ---
 
-### Elements Inspector
+### <img src="https://api.iconify.design/codicon:inspect.svg?color=%2300bcd4" width="18" valign="middle"> **Elements Inspector**
 
 Inspect and modify the DOM directly on your mobile device.
 
@@ -145,9 +158,8 @@ Inspect and modify the DOM directly on your mobile device.
 
 ---
 
-### Network Inspector
-
-Analyze network activity directly on-device.
+### <img src="https://api.iconify.design/codicon:globe.svg?color=%23007acc" width="18" valign="middle"> **Network Monitor**
+Granular analysis of network traffic and API calls.
 
 - **Waterfall Chart** — Visual request timing (DNS, SSL, TTFB, Download)
 - **Interception** — Inspect request headers, payloads, and responses
@@ -155,7 +167,7 @@ Analyze network activity directly on-device.
 
 ---
 
-### Application Manager
+### <img src="https://api.iconify.design/codicon:database.svg?color=%23d4ac00" width="18" valign="middle"> **Application Manager**
 
 Inspect application-level storage and resources.
 
@@ -165,7 +177,7 @@ Inspect application-level storage and resources.
 
 ---
 
-### Performance Monitor
+### <img src="https://api.iconify.design/codicon:pulse.svg?color=%23f44336" width="18" valign="middle"> **Performance Monitor**
 
 Real-time tracking of system resources and rendering performance.
 
