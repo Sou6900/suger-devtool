@@ -125,7 +125,7 @@ A fully interactive JavaScript debugger designed for mobile environments.
 - **Watch Expressions** — Track expressions and variables as execution progresses
 - **Execution Control** — Pause and resume JavaScript execution safely
 
-<img src="https://i.postimg.cc/65xVRpz0/Screenshot-2026-01-04-11-30-41-14-4d38fce200f96aeac5e860e739312e76.jpg" alt="Suger Devtool Preview" style="max-width:480px;width:80%;border-radius:5px;">
+![Source Debugger](https://i.postimg.cc/65xVRpz0/Screenshot-2026-01-04-11-30-41-14-4d38fce200f96aeac5e860e739312e76.jpg)
 
 ---
 
@@ -142,7 +142,7 @@ A pro-level, fully interactive JavaScript console tailored for deep inspection a
 * **Smart Context Menu** — Advanced copy options including "Copy Object (JSON)", "Copy This Session", and "Copy Input + Outputs" via long-press/right-click.
 * **Filter & Sidebar** — Categorized log filtering (User, Errors, Warnings, Info) with real-time badge counters.
 
-<img src="https://i.postimg.cc/K86r4tDs/Screenshot-2026-03-19-08-28-29-80-4d38fce200f96aeac5e860e739312e76.jpg" alt="Suger Devtool Preview" style="max-width:480px;width:80%;border-radius:5px;">
+![Console Engine](https://i.ibb.co/S4H2Mj6Y/Screenshot-2026-03-19-08-28-29-80-4d38fce200f96aeac5e860e739312e76.jpg)
 
 ### <img src="https://api.iconify.design/codicon:device-mobile.svg?color=%239c27b0" width="18" valign="middle"> **Device Emulation View**
 
@@ -162,6 +162,8 @@ Inspect and modify the DOM directly on your mobile device.
 - **Layout Tools** — Grid and Flexbox visualization overlays
 - **Style Change Tracker** — Track, preview, diff, and copy CSS modifications in real time
 
+![suger element inspect](https://i.ibb.co/xtC7k7Q4/Screenshot-2026-03-19-08-29-11-95-4d38fce200f96aeac5e860e739312e76.jpg)
+
 ---
 
 ### <img src="https://api.iconify.design/codicon:globe.svg?color=%23007acc" width="18" valign="middle"> **Network Monitor**
@@ -170,6 +172,8 @@ Granular analysis of network traffic and API calls.
 - **Waterfall Chart** — Visual request timing (DNS, SSL, TTFB, Download)
 - **Interception** — Inspect request headers, payloads, and responses
 - **XHR Breakpoints** — Pause execution on specific network requests
+
+![Network Monitor](https://i.ibb.co/nMr4h4My/Screenshot-2026-03-19-08-33-08-54-4d38fce200f96aeac5e860e739312e76.jpg)
 
 ---
 
@@ -181,6 +185,7 @@ Inspect application-level storage and resources.
 - **Deep Inspect** — IndexedDB and Cache Storage explorer
 - **Service Workers** — Inspect and unregister service workers
 
+
 ---
 
 ### <img src="https://api.iconify.design/codicon:pulse.svg?color=%23f44336" width="18" valign="middle"> **Performance Monitor**
@@ -189,6 +194,9 @@ Real-time tracking of system resources and rendering performance.
 
 * **Resource Graphs** — Visual timeline for CPU usage, JS Heap, and FPS
 * **DOM Stats** — Monitor DOM node counts and active event listeners
+
+
+![Monitor](https://i.ibb.co/Pzf8MBJt/Screenshot-2026-03-19-08-31-06-11-4d38fce200f96aeac5e860e739312e76.jpg)
 
 ---
 
