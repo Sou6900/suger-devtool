@@ -10,6 +10,8 @@
 ![Type](https://img.shields.io/badge/Type-On--device%20Mobile%20DevTools-red?style=flat-square)
 ![Platform](https://img.shields.io/badge/Platform-Mobile%20%7C%20Browser%20%7C%20WebView-lightgrey?style=flat-square)
 ![Live Editing](https://img.shields.io/badge/Live-HTML%20%7C%20CSS%20Editing-blue?style=flat-square)
+![Device View](https://img.shields.io/badge/Device_View-Responsive_Tester-darkgoldenrod?style=flat-square)
+![Console](https://img.shields.io/badge/Console-Advanced%20Console-brown?style=flat-square)
 ![Debugger](https://img.shields.io/badge/Debugger-Advanced%20JS%20Debugging-purple?style=flat-square)
 ![Dependency](https://img.shields.io/badge/Dependency-No%20Desktop%20Required-darkblue?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-Beta-darkgreen?style=flat-square)
@@ -123,6 +125,8 @@ A fully interactive JavaScript debugger designed for mobile environments.
 - **Watch Expressions** — Track expressions and variables as execution progresses
 - **Execution Control** — Pause and resume JavaScript execution safely
 
+<img src="https://i.postimg.cc/65xVRpz0/Screenshot-2026-01-04-11-30-41-14-4d38fce200f96aeac5e860e739312e76.jpg" alt="Suger Devtool Preview" style="max-width:480px;width:80%;border-radius:5px;">
+
 ---
 
 ### <img src="https://api.iconify.design/codicon:terminal.svg?color=%234CAF50" width="18" valign="middle"> **Advanced Console Engine**
@@ -137,6 +141,8 @@ A pro-level, fully interactive JavaScript console tailored for deep inspection a
 * **Early Log Ingestion** — Captures all logs, native errors, and unhandled rejections that occur even before the DevTool is fully initialized.
 * **Smart Context Menu** — Advanced copy options including "Copy Object (JSON)", "Copy This Session", and "Copy Input + Outputs" via long-press/right-click.
 * **Filter & Sidebar** — Categorized log filtering (User, Errors, Warnings, Info) with real-time badge counters.
+
+<img src="https://i.postimg.cc/PrnbZ5KS/Screenshot-2026-01-04-11-21-50-52-4d38fce200f96aeac5e860e739312e76.jpg" alt="Suger Devtool Preview" style="max-width:480px;width:80%;border-radius:5px;">
 
 ### <img src="https://api.iconify.design/codicon:device-mobile.svg?color=%239c27b0" width="18" valign="middle"> **Device Emulation View**
 
