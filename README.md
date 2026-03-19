@@ -142,7 +142,7 @@ A pro-level, fully interactive JavaScript console tailored for deep inspection a
 * **Smart Context Menu** — Advanced copy options including "Copy Object (JSON)", "Copy This Session", and "Copy Input + Outputs" via long-press/right-click.
 * **Filter & Sidebar** — Categorized log filtering (User, Errors, Warnings, Info) with real-time badge counters.
 
-<img src="https://i.postimg.cc/PrnbZ5KS/Screenshot-2026-01-04-11-21-50-52-4d38fce200f96aeac5e860e739312e76.jpg" alt="Suger Devtool Preview" style="max-width:480px;width:80%;border-radius:5px;">
+<img src="https://i.postimg.cc/K86r4tDs/Screenshot-2026-03-19-08-28-29-80-4d38fce200f96aeac5e860e739312e76.jpg" alt="Suger Devtool Preview" style="max-width:480px;width:80%;border-radius:5px;">
 
 ### <img src="https://api.iconify.design/codicon:device-mobile.svg?color=%239c27b0" width="18" valign="middle"> **Device Emulation View**
 
