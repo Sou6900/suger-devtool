@@ -22,7 +22,6 @@
   <img src="https://i.postimg.cc/G3PBM4qc/IMG-20251226-133848.png" style="width:100%;max-width:1200px;" />
 </div>
 
----
 ## Suger Playground
 
 [PLAYGROUND](https://suger-play.vercel.app)
@@ -112,6 +111,31 @@ Most mobile debugging tools focus on basic logging and network inspection.
 - Developers without reliable access to desktop DevTools
 
 ---
+
+
+<h3><img src="https://api.iconify.design/codicon:globe.svg?color=%230078d4" width="20" style="vertical-align: sub;"> Multi-Language Support</h3>
+
+<div style="display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 15px 5px;
+    white-space: nowrap;
+    scrollbar-width: none; /* Firefox Scrollbar Hide */
+    -ms-overflow-style: none; /* IE/Edge Scrollbar Hide */
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent); /* Fade Effect */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);">
+    <div class="suger-lang-chip">English (US)</div>
+    <div class="suger-lang-chip">বাংলা (Bengali)</div>
+    <div class="suger-lang-chip">Español (Spanish)</div>
+    <div class="suger-lang-chip">Português (Brazil)</div>
+    <div class="suger-lang-chip">Bahasa Indonesia</div>
+    <div class="suger-lang-chip">हिन्दी (Hindi)</div>
+    <div class="suger-lang-chip">日本語 (Japanese)</div>
+    <div class="suger-lang-chip">中文 (简体)</div>
+    <div class="suger-lang-chip">Русский (Russian)</div>
+    <div class="suger-lang-chip">العربية (Arabic)</div>
+</div>
+
 
 ## Key Features
 
@@ -222,7 +246,7 @@ Different tools are built for different needs.
 | UI language support | ✅ **Structured/Extensible** | Limited | Limited |
 | Extension? | Upcoming | ✅ | Limited |
 | Desktop required | No | No | No |
-| Min Size | ~3.2MB | ~480KB | ~280KB |
+| Min Size | ~2.7MB | ~480KB | ~280KB |
 | Lag? | No | No | No |
 | Target use case | Deep inspection | Lightweight debug | Logging & network |
 
@@ -274,66 +298,81 @@ Your_Project/
 
 ---
 
-### Inject via Chrome Bookmarklet Via Localhost
+## Quick Start (via Bookmarklet)
 
-Serve `suger-dev.js` from localhost and save this as a bookmark URL:
+You can use **Suger DevTool** on almost any website without modifying its source code. Save the following as a bookmark **URL**:
 
-```js
+### Option A: Via CDN (Recommended)
+
+```javascript
 javascript:(function(){
   var script = document.createElement('script');
-  script.src = 'http://localhost:8080/dt/suger-dev.js';
+  script.src = 'https://suger-cdn.vercel.app/suger-dev.min.js';
   document.body.appendChild(script);
 })();
 ```
 
-### Inject via Chrome Bookmarklet Via CDN -- 1.x.xv
+### Option B: Via Localhost (For Offline/Audit)
 
-Serve `suger-dev.js` via CDN and save this as a bookmark URL:
-
-```js
+```javascript
 javascript:(function(){
   var script = document.createElement('script');
-  script.src = 'https://suger-cdn.vercel.app/suger-dev.js';
+  script.src = 'http://localhost:8080/build/suger-dev.min.js';
   document.body.appendChild(script);
 })();
 ```
 
-<br>
+---
 
-> Free Trial (Beta) Key
-```js
+## Beta Access & Activation
+
+**Suger DevTool** is currently in **Public Beta**. We are providing free access to the community to gather feedback and stress-test the engine.
+
+### Current Beta Key
+
+```
 NYAR-FREE-GIFT-SUGR
 ```
 
+## Why do I need a key?
 
-Open almost any website and run the saved bookmark.
+This tool was originally built for personal mobile development workflow. As it opens to public beta, the key system helps to:
 
----
-
-## Licensing
-
-> **Note:** Suger DevTool is premium software.
-
-* License is bound to a single device for fair usage
-* Offline usage supported After using product key 
-* Designed for debugging and development purposes
-
-### Access Options
-
-* **Free Trial:** free trial
-* **Lifetime License:** One-time purchase at a minimal price
+* **Track Usage** – Monitor concurrent users testing the tool
+* **Resource Management** – Prevent CDN and Playground overload
+* **Feedback Loop** – Connect with active testers to improve the debugger
 
 ---
 
-## Limitations
+## Terms & Conditions (Beta Phase)
 
-* Native browser rendering and layout pipeline cannot be paused
-* Media playback and some CSS animations may continue while paused
-* Not intended for production runtime usage
+* **Usage**
+  The beta key grants full access to all features for testing and development purposes.
+
+* **Privacy**
+  No browsing data or inspected code is tracked. The key only validates your session.
+
+* **Liability**
+  This is beta software. Avoid using it in critical production environments.
+
+* **Fair Use**
+  Do not bypass the activation system or redistribute the minified engine without proper credit.
 
 ---
 
-## Support
+## Roadmap: Open Source Commitment
 
-* **Website:** [https://suger-devtool.vercel.app](https://suger-devtool.vercel.app)
-* **Telegram:** @cosmodec
+* **Current Status:** Public Beta (Minified Engine)
+* **Final Goal:** Fully open-source release after stabilization and proper documentation
+
+---
+
+### Support & Community
+
+* **Telegram Support**
+  @cosmodec
+
+* **Feedback**
+  Found a bug or have a feature request? Open an issue on GitHub or contact via Telegram
+
+---
