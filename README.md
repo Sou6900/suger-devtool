@@ -280,6 +280,20 @@ Add before `</body>`:
 <script src="dt/suger-dev.js"></script>
 ````
 
+**File structure:**
+
+```
+Your_Project/
+├── dt/
+│   └── suger-dev.js
+├── devtool-sw.js
+└── index.html          <- add <script> here
+```
+
+---
+
+Inject Suger Dev Tool via CDN:
+
 suger CDN link - 1.x.xv
 
 ```html
@@ -290,10 +304,8 @@ suger CDN link - 1.x.xv
 
 ```
 Your_Project/
-├── dt/
-│   └── suger-dev.js
 ├── devtool-sw.js
-└── index.html
+└── index.html           <- add <script> here
 ```
 
 ---
