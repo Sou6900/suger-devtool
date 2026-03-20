@@ -321,7 +321,7 @@ You can use **Suger DevTool** on almost any website without modifying its source
 ```javascript
 javascript:(function(){
   var script = document.createElement('script');
-  script.src = 'https://suger-cdn.vercel.app/suger-dev.min.js?key=NYAR-FREE-GIFT-SUGR';
+  script.src = 'https://suger-cdn.vercel.app/suger-dev.min.js?key=SUGER-ACCESS-KEY';
   document.body.appendChild(script);
 })();
 ```
@@ -331,7 +331,7 @@ javascript:(function(){
 ```javascript
 javascript:(function(){
   var script = document.createElement('script');
-  script.src = 'https://suger-cdn.vercel.app/suger-dev.min.js?key=SUGER-ACCESS-KEY';
+  script.src = 'https://suger-cdn.vercel.app/suger-dev.min.js';
   document.body.appendChild(script);
 })();
 ```
