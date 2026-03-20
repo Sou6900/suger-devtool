@@ -360,6 +360,11 @@ javascript:(function(){
 NYAR-FREE-GIFT-SUGR
 ```
 
+```
+SUGER-ACCESS-KEY
+```
+
+
 ## Why do I need a key?
 
 This tool was originally built for personal mobile development workflow. As it opens to public beta, the key system helps to:
