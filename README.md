@@ -316,13 +316,27 @@ You can use **Suger DevTool** on almost any website without modifying its source
 
 ### Option A: Via CDN (Recommended)
 
+
+#### A) with Key
 ```javascript
 javascript:(function(){
-  var script = document.createElement('script');
-  script.src = 'https://suger-cdn.vercel.app/suger-dev.min.js';
-  document.body.appendChild(script);
+  var script = document.createElement('script');
+  script.src = 'https://suger-cdn.vercel.app/suger-dev.min.js?key=NYAR-FREE-GIFT-SUGR';
+  document.body.appendChild(script);
 })();
 ```
+> *Only No required Gmail `access key` supports*
+
+#### B) without Key
+```javascript
+javascript:(function(){
+  var script = document.createElement('script');
+  script.src = 'https://suger-cdn.vercel.app/suger-dev.min.js?key=SUGER-ACCESS-KEY';
+  document.body.appendChild(script);
+})();
+```
+
+
 
 ### Option B: Via Localhost (For Offline/Audit)
 
@@ -340,7 +354,7 @@ javascript:(function(){
 
 **Suger DevTool** is currently in **Public Beta**. We are providing free access to the community to gather feedback and stress-test the engine.
 
-### Current Beta Key
+### Current Beta Key (No required Gmail Access Key)
 
 ```
 NYAR-FREE-GIFT-SUGR
