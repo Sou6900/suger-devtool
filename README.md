@@ -317,7 +317,8 @@ You can use **Suger DevTool** on almost any website without modifying its source
 ### Option A: Via CDN (Recommended)
 
 
-#### A) with Key
+#### A) with Key <img src="https://i.postimg.cc/5NHSL4Kf/tick-circle-svgrepo-com.png" width="20" style="position:relative;top:50px;">
+
 ```javascript
 javascript:(function(){
   var script = document.createElement('script');
