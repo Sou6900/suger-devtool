@@ -358,6 +358,8 @@ javascript:(function(){
 
 Suger DevTool now brings **Native React Fiber Inspection** directly to your mobile device! You no longer need a desktop to debug React component trees, track performance bottlenecks, or modify live states.
 
+![suger](https://i.postimg.cc/MH1HZxSk/Screenshot-2026-04-01-10-10-41-45-4d38fce200f96aeac5e860e739312e76.jpg)
+
 ##### React Features
 * **Component Tree:** Deeply inspect your React hierarchy with VS Code-style indentation guides, smart naming, and dynamic badges (`Memo`, `Provider`, `Suspense`, `ForwardRef`).
 * **Live Editor:** Modify `Props`, `State`, `Context`, and `Hooks` on the fly with a dedicated inspector panel and intelligent autocomplete.
@@ -368,10 +370,14 @@ Suger DevTool now brings **Native React Fiber Inspection** directly to your mobi
 
 Because React initializes its DevTools hook the moment the page loads, **Bookmarklets will NOT work** for React debugging (as the script injects too late). 
 
+Don't Forget to Enable React Development from Experiment tab 
+![suger](https://i.postimg.cc/h4mf187t/Screenshot-2026-04-01-09-54-44-81-4d38fce200f96aeac5e860e739312e76.jpg)
+
 To use the React features, you **must** inject Suger DevTool *before* React loads into the DOM.
 
 **Method 1: Direct HTML Injection (Recommended for Testing)**
 Place the Suger DevTool script at the very top of your `<head>` tag in your `index.html` :
+
 
 ```html
 <!DOCTYPE html>
