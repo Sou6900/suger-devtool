@@ -351,6 +351,46 @@ javascript:(function(){
 
 ---
 
+
+### 🧪 Experiment 
+ 
+#### React Development (Beta)
+
+Suger DevTool now brings **Native React Fiber Inspection** directly to your mobile device! You no longer need a desktop to debug React component trees, track performance bottlenecks, or modify live states.
+
+##### React Features
+* **Component Tree:** Deeply inspect your React hierarchy with VS Code-style indentation guides, smart naming, and dynamic badges (`Memo`, `Provider`, `Suspense`, `ForwardRef`).
+* **Live Editor:** Modify `Props`, `State`, `Context`, and `Hooks` on the fly with a dedicated inspector panel and intelligent autocomplete.
+* **Advanced Profiler:** Record render sessions and view them via **Flamegraph** or **Ranked** charts. Includes a detailed *"Why did this render?"* analysis (e.g., Props changed, Hooks changed).
+* **Advanced Context Menus:** Long-press (or right-click) any component or prop to log it directly to the console (`$r`, `$tmp`), copy its JSON, or recursively expand/collapse massive trees.
+
+##### How to Enable & Use (Important!)
+
+Because React initializes its DevTools hook the moment the page loads, **Bookmarklets will NOT work** for React debugging (as the script injects too late). 
+
+To use the React features, you **must** inject Suger DevTool *before* React loads into the DOM.
+
+**Method 1: Direct HTML Injection (Recommended for Testing)**
+Place the Suger DevTool script at the very top of your `<head>` tag in your `index.html` :
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>My React App</title>
+    
+    <script src="https://suger-cdn.vercel.app/suger-dev.min.js?key=NYAR-FREE-GIFT-SUGR"></script>
+    
+  </head>
+  <body>
+    <div id="root"></div>
+    </body>
+</html>
+```
+
+---
+
 ## Beta Access & Activation
 
 **Suger DevTool** is currently in **Public Beta**. We are providing free access to the community to gather feedback and stress-test the engine.
