@@ -1,0 +1,79 @@
+.breadcrumb-scroll:hover,
+.crumb-item:hover {
+    background-color: var(--dt-bg-hover)
+}
+
+.breadcrumb-bar {
+    display: flex;
+    align-items: center;
+    background-color: var(--dt-bg-header);
+    border-top: 1px solid var(--dt-border-color);
+    border-bottom: 1px solid var(--dt-border-color);
+    padding: 1px 4px;
+    font-family: Menlo, Consolas, "Liberation Mono", monospace;
+    font-size: .8em;
+    flex-shrink: 0;
+    user-select: none;
+    color: var(--dt-text-primary)
+}
+
+.breadcrumb-scroll {
+    background: 0 0;
+    border-radius: 3px;
+    padding: 0 4px;
+    margin: 0 2px;
+    cursor: pointer;
+    line-height: 1.2;
+    color: var(--dt-text-secondary);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    border: none;
+    outline: 0;
+    height: 1.2em
+}
+
+.breadcrumb-content {
+    flex-grow: 1;
+    overflow-x: hidden;
+    white-space: nowrap;
+    padding: 4px 6px
+}
+
+.crumb-item {
+    padding: 5px 4px;
+    cursor: pointer;
+    color: var(--dt-text-primary)
+}
+
+.crumb-item:hover {
+    border-radius: 2px
+}
+
+.crumb-tag {
+    color: var(--dt-syntax-tag)
+}
+
+.crumb-id {
+    color: var(--dt-syntax-val)
+}
+
+.crumb-class {
+    color: var(--dt-syntax-prop)
+}
+
+.crumb-separator {
+    color: var(--dt-text-disabled);
+    font-weight: 700;
+    padding: 0 3px;
+    cursor: default
+}
+
+.crumb-separator:hover {
+    background: 0 0
+}
+
+.crumb-item.selected-crumb {
+    background-color: var(--dt-bg-active);
+    outline: 0
+}

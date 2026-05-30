@@ -1,0 +1,344 @@
+.v-row .tag-name,
+.v-row .tag-punctuation {
+    color: var(--dt-syntax-tag-name)
+}
+
+.dom-badge,
+.dom-collapsed-ellipsis {
+    background-color: var(--dt-bg-sidebar)
+}
+
+#elements-content {
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--dt-bg-main);
+    color: var(--dt-text-primary);
+    font-family: Menlo, Consolas, "Liberation Mono", monospace;
+    font-size: .8em
+}
+
+#elements-tree-container {
+    flex-grow: 1;
+    overflow: auto;
+    padding: 5px;
+    position: relative;
+    -ms-overflow-style: none;
+    scrollbar-width: none
+}
+
+#elements-tree-container::-webkit-scrollbar {
+    display: none
+}
+
+.v-phantom {
+    width: 100%;
+    position: relative
+}
+
+.v-rows {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    width: max-content;
+    will-change: transform;
+    -ms-overflow-style: none;
+    scrollbar-width: none
+}
+
+.dom-options-btn,
+.dom-toggle-icon {
+    width: 20px;
+    color: var(--dt-text-secondary)
+}
+
+.v-rows::-webkit-scrollbar {
+    display: none
+}
+
+.v-row {
+    display: flex;
+    align-items: center;
+    min-height: 17px;
+    line-height: 1.4;
+    cursor: default;
+    white-space: nowrap;
+    box-sizing: border-box;
+    position: relative;
+    padding-right: 10px
+}
+
+.v-rows.word-wrap .v-row {
+    display: block !important;
+    white-space: normal !important;
+    height: auto !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    width: 100%
+}
+
+.v-rows.word-wrap {
+    width: 100%;
+    position: static
+}
+
+.v-row .attribute,
+.v-row .dom-comment,
+.v-row .dom-text,
+.v-row .tag-name,
+.v-row .tag-punctuation {
+    z-index: 1;
+    position: relative
+}
+
+.v-rows.word-wrap .attr-name,
+.v-rows.word-wrap .attr-value,
+.v-rows.word-wrap .dom-text,
+.v-rows.word-wrap .tag-name {
+    white-space: normal !important;
+    overflow-wrap: break-word;
+    word-break: normal
+}
+
+.v-rows.show-rulers .v-row::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    width: calc(var(--depth) * 14px);
+    background-image: linear-gradient(to right, transparent 13px, var(--dt-border-light) 1px);
+    background-size: 14px 100%;
+    background-repeat: repeat-x;
+    pointer-events: none;
+    opacity: .5;
+    z-index: 0
+}
+
+.v-row:hover {
+    background-color: var(--dt-bg-hover)
+}
+
+.v-row.selected {
+    background-color: var(--dt-bg-active)
+}
+
+.v-row .tag-name {
+    font-weight: 400
+}
+
+.v-row .attribute {
+    margin-left: 5px
+}
+
+.v-row .attr-name {
+    color: var(--dt-syntax-attr-name)
+}
+
+.v-row .attr-value {
+    color: var(--dt-syntax-attr-value)
+}
+
+.v-row .dom-text {
+    color: var(--dt-text-primary);
+    margin-left: 5px
+}
+
+.v-row .dom-comment {
+    color: var(--dt-syntax-comment);
+    margin-left: 5px
+}
+
+.dom-badge:hover,
+.dom-options-btn:hover,
+.dom-toggle-icon:hover {
+    color: var(--dt-text-primary)
+}
+
+.dom-options-btn {
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    position: absolute;
+    left: 2px;
+    top: 0;
+    height: 100%;
+    cursor: pointer;
+    z-index: 10
+}
+
+.dom-collapsed-ellipsis,
+.dom-toggle-icon {
+    position: relative;
+    display: inline-flex;
+    cursor: pointer
+}
+
+.dom-options-btn svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor
+}
+
+.v-row.selected .dom-options-btn,
+.v-row:hover .dom-options-btn {
+    display: inline-flex
+}
+
+.dom-toggle-icon {
+    align-items: center;
+    justify-content: center;
+    height: 17px;
+    flex-shrink: 0;
+    z-index: 2
+}
+
+.dom-toggle-icon svg {
+    width: 10px;
+    height: 10px;
+    fill: currentColor
+}
+
+.dom-toggle-icon.empty {
+    opacity: 0;
+    pointer-events: none
+}
+
+.dom-collapsed-ellipsis {
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--dt-border-light);
+    border-radius: 6px;
+    padding: 0 2px;
+    margin: 0 4px;
+    height: 12px;
+    z-index: 1
+}
+
+.dom-collapsed-ellipsis svg {
+    width: 12px;
+    height: 12px;
+    fill: var(--dt-text-secondary)
+}
+
+.v-row.flash {
+    animation: 1s ease-out flash-animation
+}
+
+.v-row.flash-delete {
+    animation: 1s ease-out flash-delete-animation
+}
+
+@keyframes flash-animation {
+    from {
+        background-color: rgba(255, 255, 0, .3)
+    }
+
+    to {
+        background-color: transparent
+    }
+}
+
+@keyframes flash-delete-animation {
+    from {
+        background-color: rgba(255, 0, 0, .3)
+    }
+
+    to {
+        background-color: transparent
+    }
+}
+
+.dom-badges-wrapper {
+    display: inline-flex;
+    gap: 4px;
+    margin-left: 6px;
+    vertical-align: middle;
+    flex-wrap: wrap
+}
+
+.dom-badge {
+    display: inline-block;
+    font-size: 9px;
+    line-height: 1;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: system-ui, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid var(--dt-border-color);
+    color: var(--dt-text-secondary);
+    user-select: none
+}
+
+.dom-badge:hover {
+    background-color: var(--dt-bg-hover)
+}
+
+.dom-badge.active {
+    color: #fff;
+    border-color: transparent
+}
+
+.dom-badge[data-type=grid].active,
+.dom-badge[data-type=subgrid].active {
+    background-color: #a072d7
+}
+
+.dom-badge[data-type=flex].active {
+    background-color: #5db0d7
+}
+
+.dom-badge[data-type=scroll-snap].active {
+    background-color: #d772b9
+}
+
+.dom-badge[data-type=ad].active {
+    background-color: #ff5252
+}
+
+.badge-settings-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--dt-bg-main);
+    border-bottom: 1px solid var(--dt-border-color);
+    padding: 8px;
+    z-index: 100;
+    display: flex;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+    justify-content: space-between
+}
+
+.badge-settings-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 11px;
+    padding-right: 10px
+}
+
+.badge-settings-close {
+    cursor: pointer;
+    padding: 2px 6px
+}
+
+.badge-options-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px
+}
+
+.badge-option {
+    display: flex;
+    align-items: center;
+    font-size: 11px;
+    cursor: pointer
+}
+
+.badge-option input {
+    margin-right: 4px
+}

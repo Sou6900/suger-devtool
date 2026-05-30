@@ -1,0 +1,78 @@
+.computed-filter,
+.computed-toggles,
+.prop-group summary {
+    color: var(--dt-text-primary)
+}
+
+.inspector-separator {
+    border: none;
+    border-top: 1px solid var(--dt-border-color);
+    margin: 10px 0
+}
+
+.computed-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 8px;
+    border-bottom: 1px solid var(--dt-border-color);
+    background-color: var(--dt-bg-header);
+    flex-shrink: 0
+}
+
+.computed-filter {
+    border: .5px solid var(--dt-border-color);
+    border-radius: 3px;
+    padding: 4px 6px;
+    font-size: 13px;
+    flex-grow: 1;
+    min-width: 100px;
+    background-color: var(--dt-bg-main)
+}
+
+.computed-toggles {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+    font-size: 12px;
+    white-space: nowrap
+}
+
+.computed-list-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    font-family: Menlo, monospace;
+    font-size: .9em;
+    background-color: var(--dt-bg-main)
+}
+
+.prop-group summary {
+    font-weight: 700;
+    cursor: pointer;
+    padding: 4px 8px;
+    background: var(--dt-bg-header);
+    border-top: 1px solid var(--dt-border-light)
+}
+
+.prop-group[open] summary {
+    border-bottom: 1px solid var(--dt-border-light)
+}
+
+.prop-list {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+.prop-list li {
+    padding: 2px 8px 2px 20px;
+    border-bottom: 1px solid var(--dt-bg-hover)
+}
+
+.prop-list .prop-name {
+    color: var(--dt-syntax-prop)
+}
+
+.prop-list .prop-value {
+    color: var(--dt-text-primary)
+}

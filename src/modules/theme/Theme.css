@@ -1,0 +1,131 @@
+.devtool-container,
+.devtool-container.dark-theme {
+    --dt-input-checkbox-border-radius: 1px;
+    --dt-checkbox-tick: #fff
+}
+
+.devtool-container.dark-theme,
+.devtool-container.darkamoled-theme {
+    --dt-bg-active: #0d2246;
+    --dt-text-primary: #e8eaed;
+    --dt-text-disabled: #5f6368;
+    --dt-text-accent: #8ab4f8;
+    --dt-syntax-key: #9cdcfe;
+    --dt-syntax-string: #ce9178;
+    --dt-syntax-number: #b5cea8;
+    --dt-syntax-boolean: #569cd6;
+    --dt-syntax-null: #858585;
+    --dt-syntax-selector: #d7ba7d;
+    --dt-syntax-property: #9cdcfe;
+    --dt-syntax-value: #ce9178;
+    --dt-syntax-keyword: #c586c0;
+    --dt-syntax-function: #dcdcaa;
+    --dt-syntax-def: #9cdcfe;
+    --dt-console-link-color: #ffffff;
+    --dt-console-error-background: #2b0303;
+    --dt-console-error-color: #fc5d59;
+    --dt-console-warn-background: #3d3106ad;
+    --dt-console-warn-color: #fff838;
+    --dt-margin-box-bg-color: #bd8347b3;
+    --dt-border-box-bg-color: #ffeaad80;
+    --dt-padding-box-bg-color: #6eb97880;
+    --dt-content-box-bg-color: #a4c3f580;
+    --dt-computed-box-label-color: #202220;
+    --dt-computed-box-inactive-label-color: #d7d7d7;
+    --dt-highlight-border: #8ab4f8
+}
+
+.devtool-container {
+    --dt-bg-main: #ffffff;
+    --dt-bg-sidebar: #f3f3f3;
+    --dt-bg-header: #f3f3f3;
+    --dt-bg-toolbar: #ffffff;
+    --dt-bg-panel: #ffffff;
+    --dt-bg-hover: #eaeaea;
+    --dt-bg-active: #e8f0fe;
+    --dt-bg-tooltip: rgba(255, 255, 255, 0.98);
+    --dt-text-primary: #202124;
+    --dt-text-secondary: #5f6368;
+    --dt-text-disabled: #aaaaaa;
+    --dt-text-accent: #1a73e8;
+    --dt-unchecked-input-checkbox: #aaaaaa;
+    --dt-checked-input-checkbox: #1a73e8;
+    --dt-border-color: #dadce0;
+    --dt-border-light: #e0e0e0;
+    --dt-shadow: rgba(0, 0, 0, 0.2);
+    --dt-syntax-comment: #008000;
+    --dt-syntax-tag-name: #881391;
+    --dt-syntax-attr-name: #9e6a03;
+    --dt-syntax-attr-value: #0d22aa;
+    --dt-syntax-prop-name: #9e6a03;
+    --dt-syntax-prop-value: #0d22aa;
+    --dt-syntax-key: #2c7094;
+    --dt-syntax-string: #c41a16;
+    --dt-syntax-number: #1c00cf;
+    --dt-syntax-boolean: #1e65f9;
+    --dt-syntax-null: #808080;
+    --dt-syntax-selector: #800080;
+    --dt-syntax-property: #c80000;
+    --dt-syntax-value: #0000ff;
+    --dt-syntax-keyword: #a71d5d;
+    --dt-syntax-function: #795da3;
+    --dt-syntax-def: #0086b3;
+    --dt-console-link-color: #575757;
+    --dt-console-error-background: #ff27270f;
+    --dt-console-error-color: #ff0000;
+    --dt-console-warn-background: #ffc70012;
+    --dt-console-warn-color: #726d00;
+    --dt-margin-box-bg-color: #c66700bd;
+    --dt-border-box-bg-color: #ffd96a80;
+    --dt-padding-box-bg-color: #93d57880;
+    --dt-content-box-bg-color: #869dc480;
+    --dt-computed-box-label-color: #070707;
+    --dt-computed-box-inactive-label-color: #050000;
+    --dt-highlight-border: #1a73e8
+}
+
+.devtool-container.dark-theme {
+    --dt-bg-main: #202124;
+    --dt-bg-sidebar: #292a2d;
+    --dt-bg-header: #292a2d;
+    --dt-bg-toolbar: #292a2d;
+    --dt-bg-panel: #202124;
+    --dt-bg-hover: #35363a;
+    --dt-bg-tooltip: rgba(40, 40, 40, 0.98);
+    --dt-text-secondary: #c8cdd1;
+    --dt-unchecked-input-checkbox: #a0bbe6;
+    --dt-checked-input-checkbox: #426dd0;
+    --dt-border-color: #494c50;
+    --dt-border-light: #3c4043;
+    --dt-shadow: rgba(0, 0, 0, 0.5);
+    --dt-syntax-comment: #7f9f7f;
+    --dt-syntax-tag-name: #da7dd2;
+    --dt-syntax-attr-name: #f0c674;
+    --dt-syntax-attr-value: #7ec4cf;
+    --dt-syntax-prop-name: #f0c674;
+    --dt-syntax-prop-value: #7ec4cf
+}
+
+.devtool-container.darkamoled-theme {
+    --dt-bg-main: #000000;
+    --dt-bg-sidebar: #000000;
+    --dt-bg-header: #000000;
+    --dt-bg-toolbar: #000000;
+    --dt-bg-panel: #000000;
+    --dt-bg-hover: #111111;
+    --dt-bg-tooltip: rgba(0, 0, 0, 1);
+    --dt-text-secondary: #9aa0a6;
+    --dt-unchecked-input-checkbox: #c0bba6;
+    --dt-checked-input-checkbox: #e6b52c;
+    --dt-input-checkbox-border-radius: 3px;
+    --dt-checkbox-tick: #000000;
+    --dt-border-color: #333333;
+    --dt-border-light: #222222;
+    --dt-shadow: rgba(255, 255, 255, 0.1);
+    --dt-syntax-tag-name: #7ca5ff;
+    --dt-syntax-attr-name: #00d2ff;
+    --dt-syntax-attr-value: #ff9346;
+    --dt-syntax-prop-name: #00d2ff;
+    --dt-syntax-prop-value: #cacaca;
+    --dt-syntax-comment: #b5b5b5
+}

@@ -1,0 +1,327 @@
+.css-rule-block header,
+.css-rule-block li {
+    display: flex;
+    color: var(--dt-text-primary)
+}
+
+.css-rule-block,
+.css-rule-block header,
+.css-rule-block li {
+    color: var(--dt-text-primary)
+}
+
+.css-rule-block li.disabled,
+li.disabled .prop-name,
+li.disabled .prop-value {
+    text-decoration: line-through;
+    color: var(--dt-text-disabled)
+}
+
+.css-rule-block {
+    font-family: Menlo, Consolas, "Liberation Mono", monospace;
+    margin-bottom: 0;
+    border-bottom: .8px solid var(--dt-border-light);
+    position: relative;
+    overflow: hidden
+}
+
+.brace,
+.rule-source {
+    color: var(--dt-text-secondary)
+}
+
+.css-rule-block header {
+    padding: 1px 8px;
+    font-weight: 700;
+    position: relative;
+    justify-content: space-between;
+    align-items: center
+}
+
+.rule-source {
+    flex-shrink: 0;
+    margin-left: 10px;
+    font-weight: 400;
+    text-align: right;
+    text-decoration: underline;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none
+}
+
+.rule-source[data-source=inspector-stylesheet] {
+    color: var(--dt-syntax-attr-name);
+    text-decoration: none;
+    cursor: default
+}
+
+.rule-source[data-source="element.style"] {
+    display: none
+}
+
+.css-rule-block ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 10px
+}
+
+.css-rule-block li {
+    padding: 0;
+    align-items: center;
+    width: 90%;
+    text-wrap: nowrap
+}
+
+.brace {
+    padding-left: 8px;
+    font-weight: 700
+}
+
+.css-rule-block li.selected-row {
+    background-color: var(--dt-bg-active)
+}
+
+.css-rule-block input[type=checkbox] {
+    margin-right: 6px;
+    width: .9em;
+    height: .9em;
+    flex-shrink: 0
+}
+
+.prop-name {
+    color: var(--dt-syntax-prop-name);
+    padding: 0
+}
+
+.css-rule-block .prop-value {
+    color: var(dt-syntax-prop-value);
+    padding: 0;
+    overflow-x: auto;
+    scrollbar-width: none
+}
+
+[contenteditable=true] {
+    background-color: var(--dt-bg-main);
+    color: var(--dt-text-primary);
+    box-shadow: none !important;
+    border: 1px dotted grey !important;
+    outline: 0 !important;
+    z-index: 10 !important;
+    position: relative;
+    border-radius: 2px
+}
+
+li.overridden {
+    opacity: .6
+}
+
+li.overridden.disabled {
+    opacity: .4
+}
+
+.add-prop-btn {
+    display: block;
+    margin-left: auto;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    background: 0 0;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 4px;
+    line-height: 1;
+    padding: 2px 6px;
+    position: absolute;
+    right: 0;
+    color: var(--dt-text-secondary)
+}
+
+.style-toggles,
+.style-toolbar {
+    display: flex;
+    align-items: center
+}
+
+.add-prop-btn:hover {
+    background: var(--dt-bg-hover);
+    color: var(--dt-text-primary)
+}
+
+.inherited-header,
+.pseudo-header {
+    padding: 6px 10px;
+    background-color: var(--dt-bg-sidebar);
+    color: var(--dt-text-secondary);
+    font-style: italic;
+    border-top: 1px solid var(--dt-border-color);
+    border-bottom: 1px solid var(--dt-border-color);
+    margin-top: 5px
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--dt-border-light);
+    margin: 5px 0
+}
+
+.style-toolbar {
+    padding: 0 8px 0 0;
+    border-bottom: 1px solid var(--dt-border-color);
+    background-color: var(--dt-bg-toolbar);
+    flex-shrink: 0
+}
+
+.class-panel .add-class-input,
+.style-filter {
+    padding: 4px 6px;
+    background-color: var(--dt-bg-main);
+    color: var(--dt-text-primary)
+}
+
+.style-filter {
+    border: .5px solid var(--dt-border-color);
+    flex-grow: 1;
+    min-width: 100px;
+    cursor: text
+}
+
+.style-toggles {
+    margin-left: 8px
+}
+
+.style-toggles button {
+    background: 0 0;
+    border: none;
+    outline: 0;
+    border-radius: 1px;
+    padding: 1px 6px;
+    margin-left: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--dt-text-primary)
+}
+
+.style-toggles button:hover {
+    background-color: var(--dt-bg-hover)
+}
+
+.style-toggle-panel {
+    padding: 8px 10px;
+    background-color: var(--dt-bg-sidebar);
+    border-bottom: 1px solid var(--dt-border-color);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--dt-text-primary)
+}
+
+.state-panel strong {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--dt-text-primary)
+}
+
+.state-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 8px
+}
+
+.class-item,
+.state-list label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    white-space: nowrap;
+    color: var(--dt-text-primary)
+}
+
+.class-item input,
+.state-list input {
+    margin-right: 5px
+}
+
+.class-panel .add-class-input {
+    width: 100%;
+    border: 1px solid var(--dt-border-color);
+    border-radius: 3px;
+    margin-bottom: 8px
+}
+
+.class-list-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px 8px
+}
+
+.class-list-container strong {
+    display: block;
+    margin-bottom: 2px;
+    width: 100%;
+    color: var(--dt-text-primary)
+}
+
+.color-swatch-inline {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: 1px solid var(--dt-border-color);
+    border-radius: 2px;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-right: 4px
+}
+
+.cm-colorpicker {
+    z-index: 2147483647 !important
+}
+
+.css-rule-block li.not-inherited {
+    opacity: .5
+}
+
+.css-rule-block li.overridden {
+    text-decoration: line-through;
+    opacity: .7
+}
+
+.css-rule-block li.disabled {
+    opacity: .5
+}
+
+.css-rule-block li.changed-property {
+    background-color: rgba(40, 167, 69, .15);
+    border-radius: 3px;
+    position: relative
+}
+
+.css-rule-block li.changed-property::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 2px;
+    bottom: 2px;
+    width: 3px;
+    background-color: #28a745;
+    border-radius: 2px
+}
+
+.style-toggles button.active {
+    color: var(--dt-text-accent) !important;
+    font-weight: 700
+}
+
+.original-value-ghost {
+    color: #757994;
+    font-style: italic;
+    font-size: .9em;
+    margin-left: 10px;
+    opacity: .7;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none
+}

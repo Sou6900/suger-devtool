@@ -1,0 +1,58 @@
+.context-menu,
+.menu-item {
+    color: var(--dt-text-primary);
+    user-select: none
+}
+
+.context-menu {
+    position: fixed;
+    background-color: var(--dt-bg-main);
+    border: 1px solid var(--dt-border-color);
+    box-shadow: 0 2px 8px var(--dt-shadow);
+    z-index: 2147483647;
+    min-width: 180px;
+    padding: 4px 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    border-radius: 4px
+}
+
+.menu-item {
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap
+}
+
+.menu-item.expanded,
+.menu-item:hover {
+    background-color: var(--dt-bg-hover)
+}
+
+.context-menu hr {
+    border: none;
+    border-top: 1px solid var(--dt-border-light);
+    margin: 4px 0
+}
+
+.menu-check {
+    display: inline-block;
+    width: 16px;
+    text-align: center;
+    margin-right: 6px;
+    font-weight: 700;
+    color: var(--dt-text-accent);
+    font-size: 12px
+}
+
+.menu-label {
+    flex-grow: 1
+}
+
+.menu-arrow {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 10px;
+    color: var(--dt-text-secondary)
+}

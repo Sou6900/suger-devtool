@@ -1,0 +1,137 @@
+// devtool-sw.js (WebViews Safe - JS Only)
+// HTML/Navigation requests are BYPASSED to prevent Deadlock within WebViews
+
+let instrumentationEnabled = false;
+let instrumentedCache = new Map();
+let pendingInstrumentation = new Map();
+
+self.addEventListener('install', (event) => {
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(self.clients.claim());
+});
+
+self.addEventListener('message', async (event) => {
+  if (!event.data) return;
+  const { type, enabled, url, code } = event.data;
+  
+  switch (type) {
+    case 'SET_INSTRUMENTATION':
+      instrumentationEnabled = enabled;
+      if (!enabled) {
+        instrumentedCache.clear();
+        pendingInstrumentation.clear();
+      }
+      break;
+
+    case 'CACHE_INSTRUMENTED':
+      if (url && code) {
+          instrumentedCache.set(url, code);
+          if (pendingInstrumentation.has(url)) {
+            const resolve = pendingInstrumentation.get(url);
+            pendingInstrumentation.delete(url);
+            resolve(code);
+          }
+      }
+      break;
+      
+    case 'CLEAR_CACHE':
+      instrumentedCache.clear();
+      pendingInstrumentation.clear();
+      break;
+  }
+});
+
+self.addEventListener('fetch', (event) => {
+  const url = new URL(event.request.url);
+  if (event.request.mode === 'navigate' || event.request.destination === 'document') {
+      return; 
+  }
+  
+  if (url.origin !== self.location.origin) return;
+  if (event.request.headers.has('X-DevTool-Request')) return;
+  if (url.pathname.includes('devtool-sw.js') || 
+      url.pathname.includes('suger-dev') ||
+      url.pathname.includes('socket')) {
+    return;
+  }
+
+  if (!instrumentationEnabled) return;
+  if (url.pathname.endsWith('.js')) {
+    event.respondWith(handleJSRequest(event.request, url));
+    return;
+  }
+});
+
+async function handleJSRequest(request, url) {
+  try {
+    // Cache Check
+    if (instrumentedCache.has(url.href)) {
+      return new Response(instrumentedCache.get(url.href), {
+        headers: { 'Content-Type': 'application/javascript' }
+      });
+    }
+
+    // Fetching origin file
+    const response = await fetch(request);
+    if (!response.ok) return response;
+
+    const originalCode = await response.text();
+
+    // Req for instrumentation 
+    // take 5sec Otherwise give original
+    const instrumentedCode = await requestInstrumentation(url.href, originalCode);
+
+    return new Response(instrumentedCode, {
+      headers: { 'Content-Type': 'application/javascript' }
+    });
+
+  } catch (error) {
+    // if error then release original req
+    return fetch(request);
+  }
+}
+
+async function requestInstrumentation(url, code) {
+  const instrumentationPromise = new Promise((resolve) => {
+    pendingInstrumentation.set(url, resolve);
+  });
+
+  // message to main thrrad
+  const clientSent = await sendToMainThread({
+    type: 'INSTRUMENT_REQUEST',
+    data: { url, code }
+  });
+
+  if (!clientSent) {
+      pendingInstrumentation.delete(url);
+      return code;
+  }
+
+  // extra safety
+  const timeoutPromise = new Promise((resolve) => {
+    setTimeout(() => {
+      if (pendingInstrumentation.has(url)) {
+          pendingInstrumentation.delete(url);
+          // console.warn('[SW] Instrumentation timed out for:', url);
+          resolve(code); // Fallback to original
+      }
+    }, 2000);
+  });
+
+  return Promise.race([instrumentationPromise, timeoutPromise]);
+}
+
+async function sendToMainThread(message) {
+  const clients = await self.clients.matchAll({ includeUncontrolled: true, type: 'window' });
+  
+  let targetClient = clients.find(c => c.visibilityState === 'visible') || clients[0];
+
+  if (targetClient) {
+    targetClient.postMessage(message);
+    return true;
+  }
+  return false;
+}

@@ -1,0 +1,31 @@
+{
+  "name": "my-devtool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/my-devtool.core.js",
+  "type": "module",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/types": "^7.28.5",
+    "esbuild": "^0.20.2",
+    "javascript-obfuscator": "^4.1.1"
+  },
+  "dependencies": {
+    "@babel/generator": "^7.28.5",
+    "@babel/parser": "^7.28.5",
+    "@babel/traverse": "^7.28.5",
+    "@fingerprintjs/fingerprintjs": "^5.0.1",
+    "acorn": "^8.15.0",
+    "acorn-walk": "^8.3.4",
+    "codemirror": "^5.65.20",
+    "codemirror-colorpicker": "^1.9.80",
+    "firebase": "^12.6.0",
+    "json-formatter-js": "^2.5.23"
+  }
+}

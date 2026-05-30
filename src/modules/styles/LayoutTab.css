@@ -1,0 +1,142 @@
+.layout-header,
+.layout-section {
+    border-bottom: 1px solid var(--dt-border-light)
+}
+
+.layout-checkbox-row input,
+.layout-toggle-checkbox {
+    margin-right: 8px;
+    accent-color: var(--dt-text-accent)
+}
+
+.layout-tab-wrapper {
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 12px;
+    color: var(--dt-text-primary);
+    height: 100%;
+    overflow-y: auto;
+    width: 100%
+}
+
+.layout-section {
+    padding-bottom: 10px
+}
+
+.layout-header {
+    background-color: var(--dt-bg-header);
+    padding: 4px 8px;
+    font-weight: 700;
+    color: var(--dt-text-secondary);
+    border-top: 1px solid var(--dt-border-light);
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: .5px
+}
+
+.layout-checkbox-row,
+.layout-select,
+.layout-sub-header {
+    color: var(--dt-text-primary)
+}
+
+.layout-subsection {
+    padding: 8px 12px
+}
+
+.layout-sub-header {
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block
+}
+
+.layout-setting-row {
+    margin-bottom: 6px
+}
+
+.layout-select {
+    width: 100%;
+    padding: 4px;
+    border: 1px solid var(--dt-border-color);
+    background: var(--dt-bg-main);
+    border-radius: 3px
+}
+
+.layout-checkbox-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    cursor: pointer;
+    user-select: none
+}
+
+.layout-element-list {
+    padding: 0
+}
+
+.layout-empty {
+    padding: 15px 12px;
+    color: var(--dt-text-disabled);
+    font-style: italic;
+    text-align: center
+}
+
+.layout-row {
+    display: flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-bottom: 1px solid var(--dt-border-light);
+    transition: background .1s;
+    min-height: 20px
+}
+
+.layout-row:hover {
+    background-color: var(--dt-bg-hover)
+}
+
+.layout-check-wrapper {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    cursor: pointer;
+    overflow: hidden
+}
+
+.layout-toggle-checkbox {
+    cursor: pointer
+}
+
+.layout-label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--dt-text-primary);
+    font-family: SFMono-Regular, Consolas, monospace;
+    font-size: 11px
+}
+
+.layout-color-swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin: 0 10px;
+    border: 1px solid rgba(0, 0, 0, .2);
+    flex-shrink: 0
+}
+
+.layout-jump-btn {
+    background: 0 0;
+    border: none;
+    cursor: pointer;
+    color: var(--dt-text-secondary);
+    font-size: 14px;
+    padding: 2px 6px;
+    line-height: 1;
+    flex-shrink: 0;
+    border-radius: 3px
+}
+
+.layout-jump-btn:hover {
+    color: var(--dt-text-accent);
+    background-color: var(--dt-bg-active)
+}
