@@ -2,7 +2,7 @@ import * as esbuild from "esbuild";
 import fs from "fs";
 import path from "path";
 
-const outdir = "build";
+const outdir = "dist";
 if (!fs.existsSync(outdir)) {
   fs.mkdirSync(outdir);
 }
@@ -68,7 +68,7 @@ async function start() {
     sourcemap: false, 
     minify: true, 
     format: "iife",
-    outfile: "build/suger-dev.min.js",
+    outfile: "dist/suger-dev.min.js",
     loader: {
       ".png": "dataurl"
     },

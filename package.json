@@ -2,7 +2,7 @@
   "name": "suger-devtool",
   "version": "1.0.19",
   "description": "Suger Devtool is a powerful, Advanced JavaScript debugger and DOM inspector especially for mobile or tablet. Features advanced Async debugging, Network waterfall, and real-time DOM manipulation with CSS changes Tracker",
-  "main": "build/main.js",
+  "main": "dist/main.js",
   "type": "module",
   "scripts": {
     "build": "node build.js"
