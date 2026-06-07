@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Suger DevTool – Console Button Demo</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    .button {
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      height: 45px;
+      width: 200px;
+      margin-bottom: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+    .btn-error {
+      background-color: #dc3545;
+    }
+    .btn-error:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<script src="./suger-dev.min.js"></script>  
+<body>
+
+<h2>Suger DevTool Console Demo</h2>
+<p>Press the button to generate console output.</p>
+
+<button class="button" onclick="runConsoleDemo()">Run Console Demo</button>
+<button class="button btn-error" onclick="triggerUnhandledError()">Trigger Unhandled Error</button>
+
+<hr>
+
+<h2>Timer Demo</h2>
+<p>
+  ⏱️ Timer:
+  <span id="timer" style="font-weight: bold; font-size: 1.2em;">0</span> sec
+</p>
+
+<button class="button" id="timerBtn" onclick="toggleTimer()">Start Timer</button>
+
+<script>
+console.log('initial log ================[]');
+
+function runConsoleDemo() {
+  /* ===== SIMPLE LOG ===== */
+  console.log("✅ Button clicked: Console demo started");
+
+  /* ===== WARNING ===== */
+  console.warn("⚠️ Warning: Live CSS editing may trigger reflow");
+
+  /* ===== TABLE (3 ROWS) ===== */
+  let myTable = [
+    { id: 1, feature: "DOM Inspector", status: "Active" , class: "Pro" , stability : "New" },
+    { id: 2, feature: "CSS Editor", status: "Live" , class: "Pro" , stability : "New" },
+    { id: 3, feature: "JS Debugger", status: "Paused" , class : "Ultra"  }
+  ];
+  console.table(myTable);
+
+  /* ===== 🔥 STACK & ERROR DEMO (NEW) 🔥 ===== */
+  try {
+    // জোর করে একটি TypeError তৈরি করছি
+    document.getElementById("non-existent-element").innerHTML = "Hello";
+  } catch (err) {
+    console.error("❌ Caught an actual Error object below:");
+    // এটি আপনার নতুন টপ-লেভেল এরর রেন্ডারার ট্রিগার করবে (স্ট্যাক ট্রেস সহ)
+    console.error(err); 
+  }
+
+  /* ===== 📦 COMPLEX NESTED OBJECT DEMO (NEW) 📦 ===== */
+  const complexData = {
+      appName: "Suger DevTool",
+      version: 2.5,
+      isPro: true,
+      errorLog: new TypeError("Cannot read properties of undefined"), // Nested error
+      domNode: document.body, // DOM element inspection
+      get secretCode() { return "SuperSecret123!"; } // Getter inspection (...)
+  };
+  console.log("📦 Inspect this nested object (Check Getter and Prototype):", complexData);
+
+
+  /* ===== 3 LEVEL GROUP ===== */
+  console.groupCollapsed("🔧 Debug Session (Click to expand)"); 
+    console.group("Level 1"); 
+      console.log("Content of Level 1");
+      console.group("Level 2"); 
+        console.log("Content of Level 2");
+        console.warn("Warning inside Level 2");
+        console.group("Level 3"); 
+          console.log("📍 We are now deep in Level 3");
+        console.groupEnd(); 
+      console.groupEnd(); 
+    console.groupEnd(); 
+  console.groupEnd(); 
+
+  /* ===== REPEATED LOG ===== */
+  for (let i = 1; i <= 5; i++) {
+    console.log("🔁 Repeated log message - hey");
+  }
+}
+
+// গ্লোবাল এরর ক্যাপচার (window.onerror) চেক করার জন্য
+function triggerUnhandledError() {
+    nonExistentFunctionCall(); // এটি Uncaught ReferenceError তৈরি করবে
+}
+</script>
+
+<script>
+let timer = null;
+let seconds = 0;
+let isRunning = false; // <-- FIX: এটি কমেন্ট করা ছিল
+
+function toggleTimer() {
+  const timerSpan = document.getElementById("timer");
+  const button = document.getElementById("timerBtn");
+
+  if (!isRunning) {
+    // ▶️ START / RESUME
+    timer = setInterval(() => {
+      seconds++;
+      timerSpan.innerText = seconds;
+    }, 1000);
+
+    isRunning = true;
+    button.innerText = "Pause Timer";
+    button.style.backgroundColor = "#ffc107"; // Yellow for pause
+    button.style.color = "black";
+
+  } else {
+    // ⏸️ PAUSE
+    clearInterval(timer);
+    isRunning = false;
+    button.innerText = "Resume Timer";
+    button.style.backgroundColor = "#28a745"; // Green for resume
+    button.style.color = "white";
+  }
+}
+</script>
+
+</body>
+</html>

@@ -291,7 +291,7 @@ window.MyDevTool.DevTool = (function() {
             delete window.suger;
             delete window.MyDevTool;
         },
-        version: MyDevTool.SettingsTab.Version, 
+        version: window.SUGER_DEVTOOL_VERSION , 
 
         inspect: (element) => {
             if (element && element.nodeType === 1) {

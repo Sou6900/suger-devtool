@@ -6,7 +6,7 @@ window.MyDevTool.SettingsTab = (function() {
   const SecureStorage = window.MyDevTool.SecureStorage; 
   let shadowRoot = null;
   let contentArea = null;
-  const Version = 'v1.0.18 (beta 1)';
+  const Version = window.SUGER_DEVTOOL_VERSION ;
 
   function init(container, root) {
     shadowRoot = root;

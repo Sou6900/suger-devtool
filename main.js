@@ -1,8 +1,12 @@
 // main.js
+import pkg from "./package.json";
 // ─── Verification Gate ────────────────────────────────────────────────────────
 // Set to `true` to require license activation before the devtool opens.
 // Set to `false` to skip all checks and open immediately (no popup, no toast).
 const REQUIRE_VERIFICATION = false;
+// Version
+window.SUGER_DEVTOOL_VERSION = `v${pkg.version}`;
+
 // ─────────────────────────────────────────────────────────────────────────────
 
 // EARLY CAPTURE SYSTEM (Must be at the very top)
@@ -255,6 +259,7 @@ import "./src/modules/settings/SettingsPreferences.js";
 import "./src/modules/settings/SettingsExperiments.js";
    
 import "./src/modules/settings/SettingsShortcuts.js";
+import "./src/modules/settings/WhatsNew.js";
 import "./src/modules/settings/SettingsTab.js";
 
 import "./src/modules/styles/StyleData.js";
