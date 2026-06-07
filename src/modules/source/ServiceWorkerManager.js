@@ -39,7 +39,7 @@ window.MyDevTool.ServiceWorkerManager = (function () {
       await navigator.serviceWorker.ready;
       return true;
     } catch (error) {
-      console.error('[SW Manager] Registration failed:', error);
+      // console.error('[SW Manager] Registration failed:', error);
       return false;
     }
   }

@@ -13,13 +13,15 @@ window.MyDevTool.ConsoleEngine = (function () {
     let userVariables = new Set();
     const vmScripts = new Map();
 
+    // Grab true native console methods saved by main.js, otherwise fallback to current console
+    const orig = window.__dt_orig_console || console;
     const originalConsole = {
-        log: console.log.bind(console),
-        warn: console.warn.bind(console),
-        error: console.error.bind(console),
-        info: console.info.bind(console),
-        table: console.table ? console.table.bind(console) : null,
-        clear: console.clear ? console.clear.bind(console) : null
+        log: (orig.log || console.log).bind(console),
+        warn: (orig.warn || console.warn).bind(console),
+        error: (orig.error || console.error).bind(console),
+        info: (orig.info || console.info).bind(console),
+        table: orig.table ? orig.table.bind(console) : (console.table ? console.table.bind(console) : null),
+        clear: orig.clear ? orig.clear.bind(console) : (console.clear ? console.clear.bind(console) : null)
     };
 
     function getHistoryUp() { if (historyIndex > 0) { historyIndex--; return commandHistory[historyIndex]; } return commandHistory[0] || ''; }
@@ -659,15 +661,68 @@ window.MyDevTool.ConsoleEngine = (function () {
         return frag;
     }
 
-    function ensureSandbox() { if (sandboxWindow) return sandboxWindow; sandboxFrame = document.createElement('iframe'); sandboxFrame.style.display = 'none'; (document.body || document.documentElement).appendChild(sandboxFrame); sandboxWindow = sandboxFrame.contentWindow; sandboxWindow.MyDevTool = window.MyDevTool; return sandboxWindow; }
-    function rewriteToGlobal(code) { if (!window.acorn) return code; const trimmedCode = code.trim(); let ast; try { ast = window.acorn.parse(trimmedCode, { ecmaVersion: 2022 }); } catch (e) { return code; } if (ast.body.length === 1 && ast.body[0].type === 'VariableDeclaration') { const node = ast.body[0]; let newCodeParts = []; for (const decl of node.declarations) { if (decl.id.type === 'Identifier') { const name = decl.id.name; let value = decl.init ? trimmedCode.slice(decl.init.start, decl.init.end) : 'undefined'; newCodeParts.push(`globalThis.${name} = ${value}`); } } return newCodeParts.join('; '); } if (ast.body.length === 1 && ast.body[0].type === 'ExpressionStatement') { let exprCode = trimmedCode.endsWith(';') ? trimmedCode.slice(0, -1) : trimmedCode; return `__last_result__ = (${exprCode})`; } return code; }
-    function globalEval(code, target = 'page') { let evalContext = (target === 'page') ? window : ensureSandbox(); try { return evalContext.eval(code); } catch (e) { if (e.message && e.message.includes('is not defined')) { try { return evalContext.eval(`globalThis.${code}`); } catch (e2) { throw e; } } throw e; } }
+    function ensureSandbox() {
+        if (sandboxWindow) return sandboxWindow;
+        sandboxFrame = document.createElement('iframe');
+        sandboxFrame.style.display = 'none';
+        (document.body || document.documentElement).appendChild(sandboxFrame);
+        sandboxWindow = sandboxFrame.contentWindow;
+        sandboxWindow.MyDevTool = window.MyDevTool;
+        return sandboxWindow;
+    }
+    function rewriteToGlobal(code) {
+        if (!window.acorn) return code;
+        const trimmedCode = code.trim();
+        let ast;
+        try {
+            ast = window.acorn.parse(trimmedCode, {
+                ecmaVersion: 2022
+            });
+        } catch (e) { return code; }
+        if (ast.body.length === 1 && ast.body[0].type === 'VariableDeclaration') {
+            const node = ast.body[0];
+            let newCodeParts = [];
+            for (const decl of node.declarations) {
+                if (decl.id.type === 'Identifier') {
+                    const name = decl.id.name;
+                    let value = decl.init ? trimmedCode.slice(decl.init.start, decl.init.end) : 'undefined';
+                    newCodeParts.push(`globalThis.${name} = ${value}`);
+                }
+            } return newCodeParts.join('; ');
+        }
+        if (ast.body.length === 1 && ast.body[0].type === 'ExpressionStatement') {
+            let exprCode = trimmedCode.endsWith(';') ? trimmedCode.slice(0, -1) : trimmedCode; return `__last_result__ = (${exprCode})`;
+        }
+        return code;
+    }
+    function globalEval(code, target = 'page') {
+        let evalContext = (target === 'page') ? window : ensureSandbox();
+        try {
+            return evalContext.eval(code);
+        } catch (e) {
+            if (e.message && e.message.includes('is not defined')) {
+                try {
+                    return evalContext.eval(`globalThis.${code}`);
+                } catch (e2) { throw e; }
+            } throw e;
+        }
+    }
 
     function parseEarlyStack(stackString) {
         if (!stackString) return null;
-        const lines = stackString.split('\n'); let callerLine = lines[2] || lines[1]; if (!callerLine) return null;
+        const lines = stackString.split('\n');
+        let callerLine = lines[2] || lines[1];
+        if (!callerLine) return null;
         const regex = /((?:https?|file|ftp|chrome-extension):\/[^:)]+|[^:(\s]+):(\d+):\d+/; const match = callerLine.match(regex);
-        if (match) { const fullUrl = match[1]; const line = match[2]; const fileName = fullUrl.split('/').pop() || fullUrl; return { text: `${fileName}:${line}`, url: fullUrl, line: parseInt(line, 10) }; }
+        if (match) {
+            const fullUrl = match[1];
+            const line = match[2];
+            const fileName = fullUrl.split('/').pop() || fullUrl; return {
+                text: `${fileName}:${line}`,
+                url: fullUrl,
+                line: parseInt(line, 10)
+            };
+        }
         return null;
     }
 
@@ -682,7 +737,36 @@ window.MyDevTool.ConsoleEngine = (function () {
         });
     }
 
-    function findPauseError(e) { if (!e) return null; if (e.name === 'DevToolPauseError' && e.url) return e; if (e.reason && e.reason.name === 'DevToolPauseError') return e.reason; if (e.message && typeof e.message === 'string' && e.message.includes('DevToolPauseError')) { const regex = /at\s+(.*?):(\d+)/; const match = e.message.match(regex); if (match) return { url: match[1], lineNumber: parseInt(match[2], 10), callStackString: e.stack || '', message: e.message }; } return null; }
+    // Dedicated replay function that properly formats and injects early logs
+    function replayEarlyLogs() {
+        if (!window.__dt_early_logs || !Array.isArray(window.__dt_early_logs)) return;
+
+        const logs = window.__dt_early_logs.slice(); // Take snapshot
+        window.__dt_early_logs = []; // Clear immediately to prevent double-processing
+
+        if (logs.length === 0) return;
+
+        logs.sort((a, b) => a.ts - b.ts);
+
+        if (printCallback) {
+            window.__dt_replaying_early = true;
+            ingestEarlyLogs(logs, printCallback);
+            window.__dt_replaying_early = false;
+        }
+    }
+
+    function findPauseError(e) {
+        if (!e) return null;
+        if (e.name === 'DevToolPauseError' && e.url) return e;
+        if (e.reason && e.reason.name === 'DevToolPauseError') return e.reason;
+        if (e.message && typeof e.message === 'string' && e.message.includes('DevToolPauseError')) {
+            const regex = /at\s+(.*?):(\d+)/;
+            const match = e.message.match(regex);
+            if (match) return {
+                url: match[1], lineNumber: parseInt(match[2], 10), callStackString: e.stack || '', message: e.message
+            };
+        } return null;
+    }
 
     async function evaluate(code, target = 'page') {
         const i18n = window.MyDevTool.LanguageManager;
@@ -698,25 +782,50 @@ window.MyDevTool.ConsoleEngine = (function () {
         const SourceDebugger = window.MyDevTool.SourceDebugger; const BreakpointManager = window.MyDevTool.SourceBreakpointManager;
 
         if (SourceDebugger && SourceDebugger.isPaused()) {
-            try { const result = SourceDebugger.evalInPausedScope(code); if (printCallback) printCallback(formatOutput(result, true), 'console-output-line', { preventGroup: true }); return; } catch (e) { }
+            try { 
+              const result = SourceDebugger.evalInPausedScope(code); 
+              if (printCallback) printCallback(formatOutput(result, true), 'console-output-line', { 
+                preventGroup: true }); return; 
+            } catch (e) { }
         }
 
         const vmId = Math.floor(Math.random() * 10000); const vmName = `VM${vmId}`; vmScripts.set(vmName, code);
         let finalCodeToRun = rewriteToGlobal(code);
-        if (window.MyDevTool.SourceInstrumenter) { try { finalCodeToRun = window.MyDevTool.SourceInstrumenter.instrument(finalCodeToRun, vmName, 0, false); } catch (e) { } }
+        if (window.MyDevTool.SourceInstrumenter) { 
+          try { 
+            finalCodeToRun = window.MyDevTool.SourceInstrumenter.instrument(finalCodeToRun, vmName, 0, false); } catch (e) { } 
+        }
 
         const wrappedCode = `(async () => { if(typeof __last_result__ !== 'undefined') __last_result__ = undefined; ${finalCodeToRun} return (typeof __last_result__ !== 'undefined') ? __last_result__ : undefined; })()`;
 
         let result; let hasError = false; let didPause = false;
         try { result = await globalEval(wrappedCode, target); } catch (e) {
             const pauseError = findPauseError(e);
-            if (SourceDebugger && pauseError) { await SourceDebugger.pause(pauseError.url, pauseError.lineNumber, pauseError.callStackString || e.stack); result = undefined; hasError = false; didPause = true; }
-            else if (SourceDebugger && BreakpointManager && BreakpointManager.shouldPauseOnUncaught()) { let line = 0; if (e.stack) { const match = e.stack.match(/:(\d+):\d+/); if (match) line = parseInt(match[1], 10) - 1; if (line < 0) line = 0; } await SourceDebugger.pause(vmName, line, e.stack); hasError = true; result = e; }
-            else { hasError = true; result = e; }
+            if (SourceDebugger && pauseError) { 
+              await SourceDebugger.pause(pauseError.url, pauseError.lineNumber, pauseError.callStackString || e.stack); result = undefined; 
+              hasError = false; 
+              didPause = true; 
+            }
+            else if (SourceDebugger && BreakpointManager && BreakpointManager.shouldPauseOnUncaught()) {
+                let line = 0;
+                if (e.stack) {
+                    const match = e.stack.match(/:(\d+):\d+/);
+                    if (match) line = parseInt(match[1], 10) - 1;
+                    if (line < 0) line = 0;
+                }
+                await SourceDebugger.pause(vmName, line, e.stack); hasError = true; result = e;
+            }
+            else {
+                hasError = true; result = e;
+            }
         }
 
-        if (hasError) { if (printCallback) printCallback(formatOutput(result, false), 'console-error-line'); }
-        else if (!didPause) { if (printCallback) printCallback(formatOutput(result, true), 'console-output-line', { preventGroup: true }); }
+        if (hasError) {
+            if (printCallback) printCallback(formatOutput(result, false), 'console-error-line');
+        }
+        else if (!didPause) {
+            if (printCallback) printCallback(formatOutput(result, true), 'console-output-line', { preventGroup: true });
+        }
     }
 
     function listSandboxGlobals() {
@@ -732,13 +841,36 @@ window.MyDevTool.ConsoleEngine = (function () {
         return Array.from(new Set([...commonBuiltins, ...plausible, ...userKeys])).sort();
     }
 
-    function readSandboxProperty(prop) { try { return { name: prop, value: formatOutput(window[prop], false) }; } catch (e) { return { name: prop, error: String(e) }; } }
+    function readSandboxProperty(prop) { 
+      try { 
+        return { 
+          name: prop, 
+          value: formatOutput(window[prop], false) 
+        }; 
+      } catch (e) { 
+        return { 
+          name: prop, 
+          error: String(e) 
+        };
+      } 
+    }
 
     function getCallerSource() {
         try {
-            const err = new Error(); const stack = err.stack.split('\n'); let callerLine = stack[3] || stack[2]; if (!callerLine) return null;
+            const err = new Error(); 
+            const stack = err.stack.split('\n'); 
+            let callerLine = stack[3] || stack[2]; if (!callerLine) return null;
             const regex = /((?:https?|file|ftp|chrome-extension):\/[^:)]+|[^:(\s]+):(\d+):\d+/; const match = callerLine.match(regex);
-            if (match) { const fullUrl = match[1]; const line = match[2]; const fileName = fullUrl.split('/').pop() || fullUrl; if (fileName === 'ConsoleEngine.js' || fileName === '<anonymous>') return null; return { text: `${fileName}:${line}`, url: fullUrl, line: parseInt(line, 10) }; }
+            if (match) { 
+              const fullUrl = match[1]; 
+              const line = match[2]; 
+              const fileName = fullUrl.split('/').pop() || fullUrl; 
+            if (fileName === 'ConsoleEngine.js' || fileName === '<anonymous>') return null; 
+            return { 
+              text: `${fileName}:${line}`, 
+              url: fullUrl, line: parseInt(line, 10) 
+            }; 
+          }
             return null;
         } catch (e) { return null; }
     }
@@ -752,33 +884,121 @@ window.MyDevTool.ConsoleEngine = (function () {
                 if (printCallback && !isSilentEval) { const source = getCallerSource(); const meta = { source: source }; const className = method === 'error' ? 'console-error-line' : method === 'warn' ? 'console-warn-line' : 'console-log-line'; printCallback(formatArgs(args), className, meta); }
             };
         });
-        console.group = function (...args) { if (originalConsole.group) originalConsole.group(...args); if (printCallback && !isSilentEval) { const label = args.length > 0 ? formatArgs(args) : 'console.group'; printCallback(label, 'console-group-label', { type: 'group', collapsed: false }); } };
-        console.groupCollapsed = function (...args) { if (originalConsole.groupCollapsed) originalConsole.groupCollapsed(...args); if (printCallback && !isSilentEval) { const label = args.length > 0 ? formatArgs(args) : 'console.group'; printCallback(label, 'console-group-label', { type: 'group', collapsed: true }); } };
-        console.groupEnd = function () { if (originalConsole.groupEnd) originalConsole.groupEnd(); if (printCallback && !isSilentEval) { printCallback('', '', { type: 'groupEnd' }); } };
-        console.table = function (data, columns) { if (originalConsole.table) originalConsole.table(data, columns); if (printCallback && !isSilentEval) { const source = getCallerSource(); const meta = { source: source, type: 'table' }; printCallback(data, 'table', meta); } };
-        console.clear = function () { if (originalConsole.clear) originalConsole.clear(); if (printCallback && !isSilentEval) { printCallback("Console was cleared", 'console-info-line', { preventGroup: true }); } };
+        console.group = function (...args) { 
+          if (
+            originalConsole.group) originalConsole.group(...args); if (printCallback && !isSilentEval) {
+            const label = args.length > 0 ? formatArgs(args) : 'console.group'; 
+            printCallback(label, 'console-group-label', { type: 'group', collapsed: false }); 
+          } 
+        };
+        console.groupCollapsed = function (...args) { 
+          if (originalConsole.groupCollapsed) originalConsole.groupCollapsed(...args); 
+          if (printCallback && !isSilentEval) { 
+            const label = args.length > 0 ? formatArgs(args) : 'console.group'; 
+            printCallback(label, 'console-group-label', { type: 'group', collapsed: true }); 
+          } 
+        };
+        console.groupEnd = function () { 
+          if (originalConsole.groupEnd) originalConsole.groupEnd(); if (printCallback && !isSilentEval) { 
+            printCallback('', '', { type: 'groupEnd' }); 
+          } 
+        };
+        console.table = function (data, columns) { 
+          if (originalConsole.table) originalConsole.table(data, columns); 
+          if (printCallback && !isSilentEval) { 
+            const source = getCallerSource(); 
+            const meta = { 
+              source: source, 
+              type: 'table' 
+            }; 
+            printCallback(data, 'table', meta); 
+          } 
+        };
+        console.clear = function () { 
+          if (originalConsole.clear) originalConsole.clear(); 
+          if (printCallback && !isSilentEval) { 
+            printCallback("Console was cleared", 'console-info-line', { preventGroup: true }); 
+          }
+        };
     }
 
     function captureGlobalErrors() {
         const i18n = window.MyDevTool.LanguageManager;
         window.addEventListener('error', (event) => {
-            let message = ''; let isErrorObject = false; let errorObj = null;
-            if (event.error) { errorObj = event.error; isErrorObject = true; message = `${event.error.name}: ${event.error.message}\n${event.error.stack || ''}`; }
-            else { const target = event.target || event.srcElement; const unknownRes = i18n ? i18n.t('console.messages.unknown_resource') : 'unknown resource'; const failedRes = i18n ? i18n.t('console.messages.failed_resource', { url: target && (target.src || target.href) || unknownRes }) : `Failed to load resource: ${target && (target.src || target.href) || unknownRes}`; message = failedRes; }
-            if (printCallback) { const content = isErrorObject ? formatOutput(errorObj, false) : message; printCallback(content, 'console-error-line'); } else { originalConsole.error("[DevTool-Preload] " + message); }
+            let message = ''; 
+            let isErrorObject = false; 
+            let errorObj = null;
+            if (event.error) { 
+              errorObj = event.error; isErrorObject = true; message = `${event.error.name}: ${event.error.message}\n${event.error.stack || ''}`; 
+            }
+            else { 
+              const target = event.target || event.srcElement; const unknownRes = i18n ? i18n.t('console.messages.unknown_resource') : 'unknown resource'; 
+              const failedRes = i18n ? i18n.t('console.messages.failed_resource', {
+                  url: target && (target.src || target.href) || unknownRes }) : `Failed to load resource: ${target && (target.src || target.href) || unknownRes}`; 
+                  message = failedRes; 
+            }
+            if (printCallback) { 
+              const content = isErrorObject ? formatOutput(errorObj, false) : message; 
+              printCallback(content, 'console-error-line'); } else { 
+                originalConsole.error("[DevTool-Preload] " + message); 
+              }
         }, true);
         window.addEventListener('unhandledrejection', (event) => {
             const prefix = i18n ? i18n.t('console.messages.unhandled_rejection') : 'Unhandled promise rejection: '; const reason = event.reason; let content;
-            if (reason instanceof Error) { const errorNode = formatOutput(reason, false); const frag = document.createDocumentFragment(); frag.appendChild(document.createTextNode(prefix)); frag.appendChild(errorNode); content = frag; }
-            else if (typeof reason === 'object' && reason !== null) { try { content = prefix + JSON.stringify(reason, null, 2); } catch (e) { content = prefix + String(reason); } }
-            else { content = prefix + String(reason); }
-            if (printCallback) { printCallback(content, 'console-error-line'); } else { originalConsole.error("[DevTool-Preload] " + String(reason)); }
+            if (reason instanceof Error) { 
+              const errorNode = formatOutput(reason, false); 
+              const frag = document.createDocumentFragment(); 
+              frag.appendChild(document.createTextNode(prefix)); frag.appendChild(errorNode); 
+              content = frag; 
+            }
+            else if (
+              typeof reason === 'object' && reason !== null) { 
+                try { 
+                  content = prefix + JSON.stringify(reason, null, 2); 
+                } catch (e) { 
+                  content = prefix + String(reason); 
+                } 
+              }
+            else { 
+              content = prefix + String(reason); 
+            }
+            if (printCallback) { 
+              printCallback(content, 'console-error-line'); 
+            } else { 
+              originalConsole.error("[DevTool-Preload] " + String(reason)); 
+            }
         });
     }
 
-    function setSilentEval(isSilent) { isSilentEval = isSilent; }
-    function init(callback) { printCallback = callback; overrideParentConsole(); captureGlobalErrors(); ensureSandbox(); }
-    function getVMContent(name) { return vmScripts.get(name) || ''; }
+    function setSilentEval(isSilent) { 
+      isSilentEval = isSilent; 
+    }
+    function init(callback) { 
+      printCallback = callback; 
+      overrideParentConsole(); 
+      captureGlobalErrors(); 
+      ensureSandbox(); 
+    }
+    function getVMContent(name) { 
+      return vmScripts.get(name) || ''; 
+    }
 
-    return { init, evaluate, globalEval, setSilentEval, getHistoryUp, getHistoryDown, resetHistoryIndex, listSandboxGlobals, readSandboxProperty, getUserVariables: () => Array.from(userVariables), clearUserVariables: () => userVariables.clear(), get sandboxWindow() { return window; }, getVMContent, formatOutput, ingestEarlyLogs };
+    // Export replayEarlyLogs as well
+    return { 
+      init, 
+      evaluate, 
+      globalEval, 
+      setSilentEval, 
+      getHistoryUp, 
+      getHistoryDown, 
+      resetHistoryIndex, 
+      listSandboxGlobals, 
+      readSandboxProperty, 
+      getUserVariables: () => Array.from(userVariables), 
+      clearUserVariables: () => userVariables.clear(), get sandboxWindow() { return window; }, 
+      getVMContent, 
+      formatOutput, 
+      ingestEarlyLogs, 
+      replayEarlyLogs 
+    };
 })();

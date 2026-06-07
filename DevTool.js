@@ -64,7 +64,15 @@ window.MyDevTool.DevTool = (function() {
         if (window.MyDevTool.Inspector) window.MyDevTool.Inspector.init(shadowRoot, devToolHost, null);
         
         // 3. Console
-        if (window.MyDevTool.ConsoleTab) window.MyDevTool.ConsoleTab.init(TabManager.getContainerFor('console'), shadowRoot);
+        if (window.MyDevTool.ConsoleTab) {
+            window.MyDevTool.ConsoleTab.init(TabManager.getContainerFor('console'), shadowRoot);
+
+            // ── Replay early-captured logs ────────────────────────────────────
+            if (window.MyDevTool.ConsoleEngine && window.MyDevTool.ConsoleEngine.replayEarlyLogs) {
+                window.MyDevTool.ConsoleEngine.replayEarlyLogs();
+            }
+            // ─────────────────────────────────────────────────────────────────
+        }
 
         // 4. Source (Debugger)
         if (window.MyDevTool.SourceTab) {

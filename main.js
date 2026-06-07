@@ -56,19 +56,50 @@ const REQUIRE_VERIFICATION = false;
         };
     }
     
-    // 1. Console Capture (Already exists)
-    if (window.__dt_early_logs) return; 
+    // 1. Console & Error Capture (EARLY)
+    if (window.__dt_early_logs) return;
     window.__dt_early_logs = [];
-    const _earlyConsole = { log: console.log, warn: console.warn, error: console.error, info: console.info, table: console.table };
-    const captureLog = (type, args) => {
-        let stack = ''; try { throw new Error(); } catch(e) { stack = e.stack; }
-        window.__dt_early_logs.push({ type: type, args: args, stack: stack, ts: Date.now() });
+
+    // Save true original console methods so we can:
+    //  (a) forward logs during early capture
+    //  (b) suppress real-console output during log replay (no noise)
+    const _earlyConsole = {
+        log:   console.log,
+        warn:  console.warn,
+        error: console.error,
+        info:  console.info,
+        table: console.table,
     };
+    // Expose originals globally so DevTool can silence them during replay
+    window.__dt_orig_console = _earlyConsole;
+
+    const captureLog = (type, args) => {
+        // Skip re-capturing during controlled replay — DevTool sets this flag
+        if (window.__dt_replaying_early) return;
+        let stack = '';
+        try { throw new Error(); } catch(e) { stack = e.stack; }
+        window.__dt_early_logs.push({ type, args, stack, ts: Date.now() });
+    };
+
     ['log', 'warn', 'error', 'info', 'table'].forEach(method => {
         console[method] = function(...args) {
             captureLog(method, args);
-            if (_earlyConsole[method]) _earlyConsole[method].apply(console, args);
+            _earlyConsole[method].apply(console, args);
         };
+    });
+
+    // Catch early native errors (Syntax, Reference, Runtime)
+    window.addEventListener('error', function(event) {
+        if (window.__dt_replaying_early) return;
+        const errObj = event.error || event.message;
+        const stack = event.error ? event.error.stack : '';
+        window.__dt_early_logs.push({ type: 'error', args: [errObj], stack: stack, ts: Date.now() });
+    });
+
+    // Catch early unhandled promises
+    window.addEventListener('unhandledrejection', function(event) {
+        if (window.__dt_replaying_early) return;
+        window.__dt_early_logs.push({ type: 'error', args: ['Unhandled promise rejection:', event.reason], stack: event.reason && event.reason.stack ? event.reason.stack : '', ts: Date.now() });
     });
 
     // 2. Early Network Capture
@@ -312,7 +343,9 @@ if (window.MyDevTool.SourceDebugger && window.MyDevTool.SourceBreakpointManager)
    window.MyDevTool.SourceDebugger.setBreakpointManager(window.MyDevTool.SourceBreakpointManager);
 }
 if (window.MyDevTool.ServiceWorkerManager) {
-  try { window.MyDevTool.ServiceWorkerManager.init(); } catch (e) { console.warn("SW Init failed:", e); }
+  try { window.MyDevTool.ServiceWorkerManager.init(); } catch (e) {
+    console.warn("SW Init failed:", e); 
+  }
 }
 if (window.MyDevTool.LanguageManager) window.MyDevTool.LanguageManager.init();
 
@@ -546,3 +579,4 @@ if (document.readyState === 'loading') {
 } else {
     init();
 }
+
