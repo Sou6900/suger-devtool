@@ -112,6 +112,78 @@ Most mobile debugging tools focus on basic logging and network inspection.
 
 ---
 
+### Inject Engine
+
+Inject Suger Dev Tool via CDN:
+
+suger CDN link - 1.x.xv
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/Sou6900/suger-devtool@v1.0.19/suger-dev.min.js"></script>
+````
+
+**File structure:**
+
+```
+Your_Project/
+├── devtool-sw.js
+└── index.html           <- add <script> here
+```
+
+---
+
+Download or serve the engine locally:
+
+- **File:** `suger-dev.js`
+
+Add before `</body>`:
+
+
+```html
+<script src="dt/suger-dev.js"></script>
+````
+
+**File structure:**
+
+```
+Your_Project/
+├── dt/
+│   └── suger-dev.js
+├── devtool-sw.js
+└── index.html          <- add <script> here
+```
+
+---
+
+## Quick Start (via Bookmarklet)
+
+You can use **Suger DevTool** on almost any website without modifying its source code. Save the following as a bookmark **URL**:
+
+### Option A: Via CDN (Recommended)
+
+#### A) <img src="https://i.postimg.cc/5NHSL4Kf/tick-circle-svgrepo-com.png" width="20" style="position:relative;top:50px;">
+
+```javascript
+javascript:(function(){
+ var script = document.createElement('script');
+ script.src = 'https://cdn.jsdelivr.net/gh/Sou6900/suger-devtool@v1.0.19/suger-dev.min.js';
+ document.body.appendChild(script);
+})();
+```
+
+### Option B: Via Localhost (For Offline/Audit)
+
+```javascript
+javascript:(function(){
+  var script = document.createElement('script');
+  script.src = 'http://localhost:8080/build/suger-dev.min.js';
+  document.body.appendChild(script);
+})();
+```
+
+---
+
+
 
 <h3><img src="https://api.iconify.design/codicon:globe.svg?color=%230078d4" width="20" style="vertical-align: sub;"> Multi-Language Support</h3>
 
@@ -268,90 +340,6 @@ You can use **Suger DevTool** in any HTML/JavaScript project.
 
 ---
 
-### Inject Engine
-
-Download or serve the engine locally:
-
-- **File:** `suger-dev.js`
-
-Add before `</body>`:
-
-```html
-<script src="dt/suger-dev.js"></script>
-````
-
-**File structure:**
-
-```
-Your_Project/
-├── dt/
-│   └── suger-dev.js
-├── devtool-sw.js
-└── index.html          <- add <script> here
-```
-
----
-
-Inject Suger Dev Tool via CDN:
-
-suger CDN link - 1.x.xv
-
-```html
-<script src="https://suger-cdn.vercel.app/suger-dev.js"></script>
-````
-
-**File structure:**
-
-```
-Your_Project/
-├── devtool-sw.js
-└── index.html           <- add <script> here
-```
-
----
-
-## Quick Start (via Bookmarklet)
-
-You can use **Suger DevTool** on almost any website without modifying its source code. Save the following as a bookmark **URL**:
-
-### Option A: Via CDN (Recommended)
-
-
-#### A) with Key <img src="https://i.postimg.cc/5NHSL4Kf/tick-circle-svgrepo-com.png" width="20" style="position:relative;top:50px;">
-
-```javascript
-javascript:(function(){
-  var script = document.createElement('script');
-  script.src = 'https://suger-cdn.vercel.app/suger-dev.min.js?key=SUGER-ACCESS-KEY';
-  document.body.appendChild(script);
-})();
-```
-> *Only No required Gmail `access key` supports*
-
-#### B) without Key
-```javascript
-javascript:(function(){
-  var script = document.createElement('script');
-  script.src = 'https://suger-cdn.vercel.app/suger-dev.min.js';
-  document.body.appendChild(script);
-})();
-```
-
-
-
-### Option B: Via Localhost (For Offline/Audit)
-
-```javascript
-javascript:(function(){
-  var script = document.createElement('script');
-  script.src = 'http://localhost:8080/build/suger-dev.min.js';
-  document.body.appendChild(script);
-})();
-```
-
----
-
-
 ### 🧪 Experiment 
  
 #### React Development (Beta)
@@ -386,7 +374,7 @@ Place the Suger DevTool script at the very top of your `<head>` tag in your `ind
     <meta charset="utf-8" />
     <title>My React App</title>
     
-    <script src="https://suger-cdn.vercel.app/suger-dev.min.js?key=NYAR-FREE-GIFT-SUGR"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Sou6900/suger-devtool@v1.0.19/suger-dev.min.js"></script>
     
   </head>
   <body>
@@ -394,54 +382,21 @@ Place the Suger DevTool script at the very top of your `<head>` tag in your `ind
     </body>
 </html>
 ```
-
----
-
-## Beta Access & Activation
-
-**Suger DevTool** is currently in **Public Beta**. We are providing free access to the community to gather feedback and stress-test the engine.
-
-### Current Beta Key (No required Gmail Access Key)
-
-```
-NYAR-FREE-GIFT-SUGR
-```
-
-```
-SUGER-ACCESS-KEY
-```
-
-
-## Why do I need a key?
-
-This tool was originally built for personal mobile development workflow. As it opens to public beta, the key system helps to:
-
-* **Track Usage** – Monitor concurrent users testing the tool
-* **Resource Management** – Prevent CDN and Playground overload
-* **Feedback Loop** – Connect with active testers to improve the debugger
-
 ---
 
 ## Terms & Conditions (Beta Phase)
 
-* **Usage**
-  The beta key grants full access to all features for testing and development purposes.
-
 * **Privacy**
-  No browsing data or inspected code is tracked. The key only validates your session.
+  No browsing data or inspected code is tracked.
 
 * **Liability**
   This is beta software. Avoid using it in critical production environments.
-
-* **Fair Use**
-  Do not bypass the activation system or redistribute the minified engine without proper credit.
 
 ---
 
 ## Roadmap: Open Source Commitment
 
-* **Current Status:** Public Beta (Minified Engine)
-* **Final Goal:** Fully open-source release after stabilization and proper documentation
+* **Open Source:** Open-Source Software
 
 ---
 
