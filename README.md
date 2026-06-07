@@ -119,7 +119,7 @@ Inject Suger Dev Tool via CDN:
 suger CDN link - 1.x.xv
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/Sou6900/suger-devtool@v1.0.19/suger-dev.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Sou6900/suger-devtool@main/dist/suger-dev.min.js"></script>
 ````
 
 **File structure:**
