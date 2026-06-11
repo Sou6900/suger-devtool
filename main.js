@@ -568,20 +568,10 @@ function showActivationPopup(prefilledKey = null) {
 }
 
 function startDevTool() {
-  // console.log("startDevTool");
   if (window.MyDevTool.EventListenerManager) {
-    // console.log("startDevTool 1");
       window.MyDevTool.EventListenerManager.init();
   }
   if (window.MyDevTool && window.MyDevTool.DevTool) {
-    // console.log("startDevTool 3");
     window.MyDevTool.DevTool.init(); 
   }
 }
-
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-} else {
-    init();
-}
-
