@@ -119,7 +119,10 @@ Inject Suger Dev Tool via CDN:
 suger CDN link - 1.x.xv
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/Sou6900/suger-devtool@main/dist/suger-dev.min.js"></script>
+<script src="https://suger-cdn.vercel.app/suger-dev.min.js"></script>
+<script>
+  setTimeout(()=>{suger.init()} ,100);
+</script>
 ````
 
 **File structure:**
@@ -141,6 +144,9 @@ Add before `</body>`:
 
 ```html
 <script src="dt/suger-dev.js"></script>
+<script>
+  setTimeout(()=>{suger.init()} ,0);
+</script>
 ````
 
 **File structure:**
@@ -166,8 +172,9 @@ You can use **Suger DevTool** on almost any website without modifying its source
 ```javascript
 javascript:(function(){
  var script = document.createElement('script');
- script.src = 'https://cdn.jsdelivr.net/gh/Sou6900/suger-devtool@v1.0.19/suger-dev.min.js';
+ script.src = 'https://suger-cdn.vercel.app/suger-dev.min.js';
  document.body.appendChild(script);
+ setTimeout(()=>{suger.init()} ,0);
 })();
 ```
 
@@ -175,9 +182,10 @@ javascript:(function(){
 
 ```javascript
 javascript:(function(){
-  var script = document.createElement('script');
-  script.src = 'http://localhost:8080/build/suger-dev.min.js';
-  document.body.appendChild(script);
+ var script = document.createElement('script');
+ script.src = 'http://localhost:8080/build/suger-dev.min.js';
+ document.body.appendChild(script);
+ setTimeout(()=>{suger.init()} ,0);
 })();
 ```
 
@@ -373,9 +381,7 @@ Place the Suger DevTool script at the very top of your `<head>` tag in your `ind
   <head>
     <meta charset="utf-8" />
     <title>My React App</title>
-    
-    <script src="https://cdn.jsdelivr.net/gh/Sou6900/suger-devtool@v1.0.19/suger-dev.min.js"></script>
-    
+    <script src="https://suger-cdn.vercel.app/suger-dev.min.js"></script>
   </head>
   <body>
     <div id="root"></div>
