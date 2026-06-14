@@ -174,7 +174,7 @@ javascript:(function(){
  var script = document.createElement('script');
  script.src = 'https://suger-cdn.vercel.app/suger-dev.min.js';
  document.body.appendChild(script);
- setTimeout(()=>{suger.init()} ,0);
+ setTimeout(()=>{suger.init()} ,100);
 })();
 ```
 
@@ -185,7 +185,7 @@ javascript:(function(){
  var script = document.createElement('script');
  script.src = 'http://localhost:8080/build/suger-dev.min.js';
  document.body.appendChild(script);
- setTimeout(()=>{suger.init()} ,0);
+ setTimeout(()=>{suger.init()} ,100);
 })();
 ```
 
