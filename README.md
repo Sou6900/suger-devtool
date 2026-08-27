@@ -121,7 +121,11 @@ suger CDN link - 1.x.xv
 ```html
 <script src="https://suger-cdn.vercel.app/suger-dev.min.js"></script>
 <script>
-  setTimeout(()=>{suger.init()} ,100);
+  setTimeout(()=>{suger.init()} ,100); // to show suger
+</script>
+
+<script>
+  suger.hide());  // to hide suger
 </script>
 ````
 
